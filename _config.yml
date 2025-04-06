@@ -15,7 +15,7 @@ name                     : &name "Dazhi Zhao"
 description              : &description "Mechanics & Deep Learning."
 url                      : https://dazhizhao.github.io/
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "dazhizhao/dazhizhao.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
