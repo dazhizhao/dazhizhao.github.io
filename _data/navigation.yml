@@ -9,10 +9,10 @@
 
 main:
   - title: "Publications"
-    url: https:/dazhizhao.github.io/publications/
+    url: /publications/
         
   - title: "CV"
-    url: https:/dazhizhao.github.io/cv/
+    url: /cv/
     
   # - title: "CV"
   #   url: /cv-json/
