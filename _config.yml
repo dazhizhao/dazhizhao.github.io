@@ -13,7 +13,7 @@ title                    : "Dazhi Zhao's Personal Homepage"
 title_separator          : "-"
 name                     : &name "Dazhi Zhao"
 description              : &description "Mechanics & Deep Learning."
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+url                      : https://dazhizhao.github.io/
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
 
