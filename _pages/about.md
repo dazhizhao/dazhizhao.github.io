@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I'm a second-year undergraduate student from [School of Aerospace Engineering and Applied Mechanics](https://aero-mech.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/). My main research interests are focused on the following three directions: 
+Hi! I'm a second-year undergraduate student from [School of Aerospace Engineering and Applied Mechanics](https://aero-mech.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/). My main research interests are focused on the following directions: 
 1. Data-driven modeling and analysis of mechanics.
 2. Scientific machine learning problems based on Physics-Informed Neural Networks and Operator Learning.
 3. Deep neural network architecture innovation and algorithm optimization for computer vision.
