@@ -15,3 +15,12 @@ Hi! I'm a second-year undergraduate student from [School of Aerospace Engineerin
 I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) of FCM Lab from School of Aerospace Engineering and Applied Mechanics, Tongji University. Meanwhile, I am also advised by [Prof. Fan](https://www.ruirangerfan.com/) of [MIAS Group](https://mias.group/) from [School of Electronic and Information Engineering](https://see.tongji.edu.cn/), Tongji University.
 
 [Email](zhaodazhi@tongji.edu.cn) / [Github](https://github.com/dazhizhao)
+
+---
+permalink: /
+title: "News"
+author_profile: false
+redirect_from: 
+  - /news/
+  - /news.html
+---
