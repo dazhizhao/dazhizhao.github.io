@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+title: "About me👋"
 author_profile: true
 redirect_from: 
   - /about/
@@ -16,3 +16,6 @@ I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.c
 
 [Email](zhaodazhi@tongji.edu.cn) / [Github](https://github.com/dazhizhao)
 
+News📰
+======
+2025/5/9 Our first work _Cross-information Neural Network for Low-velocity Impact Damage Prediction in Laminated Composite_ has been submitted to _Engineering Applications of Artificial Intelligence_, thanks to Prof.Tang and my collaborators!
