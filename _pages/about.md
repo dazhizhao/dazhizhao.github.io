@@ -20,5 +20,5 @@ Currently, I'm seeking opportunities to apply for a Ph.D. program in 27fall!
 
 News📰
 ======
-2025/5/9  My first work with Yinglong Liu has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), thanks to Prof. Tang and all other collaborators!
+2025/5/9  My first work with Yinglong Liu has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), many thanks to Prof. Tang and all other collaborators!
 
