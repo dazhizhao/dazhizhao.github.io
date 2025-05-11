@@ -18,4 +18,4 @@ I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.c
 
 News📰
 ======
-2025/5/9 Our first work _Cross-information Neural Network for Low-velocity Impact Damage Prediction in Laminated Composite_ has been submitted to _Engineering Applications of Artificial Intelligence_, thanks to Prof.Tang and my collaborators!
+2025/5/9 My first work _Cross-information Neural Network for Low-velocity Impact Damage Prediction in Laminated Composite_ has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), thanks to Prof.Tang and my collaborators!
