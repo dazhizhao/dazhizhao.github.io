@@ -16,8 +16,6 @@ It's very fortunate for me to be advised by [Prof. Tang](https://aero-mech.tongj
 
 Currently, I'm seeking opportunities to apply for a Ph.D. program in 27fall!
 
-[Email](zhaodazhi@tongji.edu.cn) / [Github](https://github.com/dazhizhao)
-
 News📰
 ======
 2025/5/9  My first work with Yinglong Liu has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), many thanks to Prof. Tang and all other collaborators!
