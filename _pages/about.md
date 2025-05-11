@@ -16,7 +16,3 @@ I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.c
 
 [Email](zhaodazhi@tongji.edu.cn) / [Github](https://github.com/dazhizhao)
 
----
-permalink: /
-title: "About me"
----
