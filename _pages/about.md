@@ -12,7 +12,7 @@ Hi! I'm a second-year undergraduate student from [School of Aerospace Engineerin
 2. Scientific machine learning problems based on Physics-Informed Neural Networks and Operator Learning.
 3. Deep neural network architecture innovation and algorithm optimization for computer vision.
 
-I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) of FCM Lab from School of Aerospace Engineering and Applied Mechanics, Tongji University. Meanwhile, I am also advised by [Prof. Fan](https://www.ruirangerfan.com/) of [MIAS Group](https://mias.group/) from [School of Electronic and Information Engineering](https://see.tongji.edu.cn/), Tongji University.
+It's very fortunate for me to be advised by [Prof. Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) of FCM Lab from School of Aerospace Engineering and Applied Mechanics, Tongji University. Meanwhile, I am also advised by [Prof. Fan](https://www.ruirangerfan.com/) of [MIAS Group](https://mias.group/) from [School of Electronic and Information Engineering](https://see.tongji.edu.cn/), Tongji University.
 
 Currently, I'm seeking opportunities to apply for a Ph.D. program in 27fall!
 
