@@ -18,4 +18,4 @@ I am very fortunate to be advised by [Prof. Tang](https://aero-mech.tongji.edu.c
 
 News📰
 ======
-2025/5/9  My first work with Yinglong Liu has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), thanks to Prof.Tang and other all collaborators!
+2025/5/9  My first work with Yinglong Liu has been submitted to _Engineering Applications of Artificial Intelligence_ (EAAI), thanks to Prof. Tang and all other collaborators!
