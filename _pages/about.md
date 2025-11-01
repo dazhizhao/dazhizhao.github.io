@@ -18,6 +18,6 @@ Currently, I'm seeking opportunities to apply for Ph.D. program in 27Fall!
 
 News📰
 ======
-2025/11/1   My second work is nearly completed. Stay tuned for the preprint on arXiv! 😊 </br>
+2025/11/1   My second work is completed where we tackle a problem in disordered metamaterial design! Stay tuned for the preprint! 😊 </br>
 2025/5/9    My first work with Yinglong Liu has been submitted to journal, many thanks to Prof. Tang and all other collaborators! ♥️
 
