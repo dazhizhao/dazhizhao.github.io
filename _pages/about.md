@@ -62,7 +62,7 @@ redirect_from:
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Inverse problem</span>
     </p>
 
-    <p>I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Tang</a> of FCM Lab and also by <a href="https://www.ruirangerfan.com/">Prof. Fan</a> of the <a href="https://mias.group/">MIAS Group</a>, both at Tongji University.</p>
+    <p>I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Keke Tang</a> of FCM Lab and also by <a href="https://www.ruirangerfan.com/">Prof. Rui Fan</a> of the <a href="https://mias.group/">MIAS Group</a>, both at Tongji University.</p>
 
     <p>I am currently seeking Ph.D. opportunities for Fall 2027 in mechanics, differentiable simulation, and AI for engineering.</p>
   </div>
