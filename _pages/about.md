@@ -53,7 +53,7 @@ redirect_from:
     <h1 class="onepage-hero__title">Dazhi Zhao 「赵大志」</h1>
     <p class="onepage-hero__subtitle">Undergraduate researcher at Tongji University</p>
 
-    <p>I am a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
+    <p>Hi! I'am from the ancient city Xi'an, China, and I am currently a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>. My work sits at the intersection of mechanics, computation, and machine learning, and I am especially interested in developing physically grounded methods for engineering analysis, inverse problems, and design.</p>
 
     <p class="onepage-hero__focus">
       <span class="onepage-hero__focus-label">My research interests include:</span>
@@ -64,7 +64,6 @@ redirect_from:
 
     <p>I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Keke Tang</a> of FCM Lab and also by <a href="https://www.ruirangerfan.com/">Prof. Rui Fan</a> of the <a href="https://mias.group/">MIAS Group</a>, both at Tongji University.</p>
 
-    <p>I am currently seeking Ph.D. opportunities for Fall 2027 in mechanics, differentiable simulation, and AI for engineering.</p>
   </div>
 </section>
 
