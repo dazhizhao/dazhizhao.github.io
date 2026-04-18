@@ -58,6 +58,9 @@ body.home-classic .masthead {
 
 body.home-classic #main {
   margin-top: 0.8rem;
+  max-width: 980px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   @include breakpoint($large) {
     padding-left: 1em;
@@ -228,13 +231,6 @@ body.home-classic .page__footer {
   background: transparent;
 }
 
-body.home-classic #main {
-  max-width: 980px;
-  margin-top: 1.05rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 body.home-classic .onepage-home {
   max-width: 900px;
   margin: 0 auto;
@@ -249,7 +245,7 @@ body.home-classic .onepage-hero {
   grid-template-columns: 272px minmax(0, 1fr);
   gap: 1.1rem;
   align-items: start;
-  padding: 0.34rem 0 1rem;
+  padding: 0 0 1rem;
 }
 
 body.home-classic .onepage-hero__aside {
