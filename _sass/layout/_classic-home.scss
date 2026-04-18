@@ -57,7 +57,7 @@ body.home-classic .masthead {
 }
 
 body.home-classic #main {
-  margin-top: 0;
+  margin-top: 0.45rem;
 
   @include breakpoint($large) {
     padding-left: 1em;
@@ -249,7 +249,7 @@ body.home-classic .onepage-hero {
   grid-template-columns: 272px minmax(0, 1fr);
   gap: 1.1rem;
   align-items: start;
-  padding: 0 0 1rem;
+  padding: 0.18rem 0 1rem;
 }
 
 body.home-classic .onepage-hero__aside {
