@@ -57,7 +57,7 @@ body.home-classic .masthead {
 }
 
 body.home-classic #main {
-  margin-top: 0.6rem;
+  margin-top: 0;
 
   @include breakpoint($large) {
     padding-left: 1em;
@@ -249,7 +249,7 @@ body.home-classic .onepage-hero {
   grid-template-columns: 272px minmax(0, 1fr);
   gap: 1.1rem;
   align-items: start;
-  padding: 0.25rem 0 1rem;
+  padding: 0 0 1rem;
 }
 
 body.home-classic .onepage-hero__aside {
@@ -275,7 +275,7 @@ body.home-classic .onepage-hero__title {
 }
 
 body.home-classic .onepage-hero__subtitle {
-  margin: 0.68rem 0 0.8rem;
+  margin: 0.92rem 0 0.8rem;
   color: rgba(45, 35, 27, 0.72);
   font-size: 0.94rem;
 }
@@ -301,6 +301,7 @@ body.home-classic .onepage-hero__focus {
 
 body.home-classic .onepage-hero__focus-label {
   margin-bottom: 0.08rem;
+  font-weight: 400;
 }
 
 body.home-classic .onepage-hero__focus-item {

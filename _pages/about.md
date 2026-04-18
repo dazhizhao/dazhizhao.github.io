@@ -50,7 +50,7 @@ redirect_from:
     <p>I am a third-year undergraduate student at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
 
     <p class="onepage-hero__focus">
-      <span class="onepage-hero__focus-label">My research interests include:：</span>
+      <span class="onepage-hero__focus-label">My research interests include:</span>
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Data-driven design</span>
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Differentiable simulation</span>
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Inverse problem</span>
