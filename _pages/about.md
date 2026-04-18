@@ -24,6 +24,12 @@ redirect_from:
         </a>
       </li>
       <li class="onepage-aside-list__item">
+        <a href="https://github.com/dazhizhao">
+          <i class="fa-brands fa-github icon-pad-right" aria-hidden="true"></i>
+          GitHub
+        </a>
+      </li>
+      <li class="onepage-aside-list__item">
         <a href="https://www.linkedin.com/in/dazhizhao126/">
           <i class="fa-brands fa-linkedin icon-pad-right" aria-hidden="true"></i>
           LinkedIn
