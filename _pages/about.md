@@ -48,7 +48,15 @@ redirect_from:
     <h1 class="onepage-hero__title">Dazhi Zhao 「赵大志」</h1>
     <p class="onepage-hero__subtitle">Undergraduate researcher at Tongji University</p>
 
-    <p>I am a third-year undergraduate student at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>. My research focuses on computational mechanics, differentiable simulation, data-driven mechanical design, and modern machine learning.</p>
+    <p>I am a third-year undergraduate student at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
+
+    <p class="onepage-hero__focus">
+      <span>Computational mechanics</span>
+      <span class="onepage-hero__focus-dot" aria-hidden="true">·</span>
+      <span>Differentiable simulation</span>
+      <span class="onepage-hero__focus-dot" aria-hidden="true">·</span>
+      <span>Data-driven mechanical design</span>
+    </p>
 
     <p>I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Tang</a> of FCM Lab and also by <a href="https://www.ruirangerfan.com/">Prof. Fan</a> of the <a href="https://mias.group/">MIAS Group</a>, both at Tongji University.</p>
 
