@@ -393,14 +393,41 @@ body.home-classic .onepage-section__head h2 {
 
 body.home-classic .onepage-newsbox {
   max-height: 12.8rem;
-  padding: 0.35rem 0.85rem 0.35rem 0.9rem;
+  margin-bottom: 0.42rem;
+  padding: 0.35rem 0.72rem 0.55rem 0.9rem;
   overflow-y: auto;
   border: 1px solid rgba(123, 90, 46, 0.16);
   border-radius: 16px;
   background: rgba(250, 246, 239, 0.5);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: rgba(123, 90, 46, 0.45) transparent;
+}
+
+body.home-classic .onepage-newsbox::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.home-classic .onepage-newsbox::-webkit-scrollbar-track {
+  margin: 0.45rem 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+body.home-classic .onepage-newsbox::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(123, 90, 46, 0.42);
+}
+
+body.home-classic .onepage-newsbox::-webkit-scrollbar-thumb:hover {
+  background: rgba(123, 90, 46, 0.58);
+}
+
+body.home-classic .onepage-newsbox::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body.home-classic .onepage-news-entry {
