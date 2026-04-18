@@ -5,6 +5,13 @@
       return;
     }
 
+    if (document.body.classList.contains("home-classic")) {
+      document.documentElement.style.setProperty("--masthead-height", "0px");
+      document.body.style.paddingTop = "0px";
+      $(".sidebar").css("padding-top", "");
+      return;
+    }
+
     var mastheadHeight = masthead.offsetHeight || 0;
     document.documentElement.style.setProperty("--masthead-height", mastheadHeight + "px");
     document.body.style.paddingTop = mastheadHeight + "px";
