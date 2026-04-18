@@ -35,10 +35,10 @@ redirect_from:
           Google Scholar
         </a>
       </li>
-      <li class="onepage-aside-list__item">
+      <li class="onepage-aside-list__item onepage-aside-list__item--email">
         <span>
           <i class="fa-regular fa-envelope icon-pad-right" aria-hidden="true"></i>
-          zhaodazhi [at] tongji [dot] edu [dot] cn
+          <span class="onepage-aside-list__email-text">zhaodazhi [at] tongji [dot] edu [dot] cn</span>
         </span>
       </li>
     </ul>
@@ -83,6 +83,11 @@ redirect_from:
     <article class="onepage-news-entry">
       <p class="onepage-news-entry__date">2026/03/08</p>
       <p class="onepage-news-entry__body">Our Thin-Walled Structures paper on autoregressive inverse design of disordered metamaterials was accepted.</p>
+    </article>
+
+    <article class="onepage-news-entry">
+      <p class="onepage-news-entry__date">2026/01/28</p>
+      <p class="onepage-news-entry__body">Started my internship at HKUST and began collaborating with Prof. Tianju Xue on differentiable simulation.</p>
     </article>
 
     <article class="onepage-news-entry">

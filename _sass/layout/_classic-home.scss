@@ -241,8 +241,8 @@ body.home-classic .onepage-home__content {
 
 body.home-classic .onepage-hero {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  gap: 1.35rem;
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: 1.1rem;
   align-items: start;
   padding: 0.25rem 0 1rem;
 }
@@ -346,6 +346,27 @@ body.home-classic .onepage-aside-list__item i {
 body.home-classic .onepage-aside-list__item .icon-pad-right {
   padding-right: 0.3em;
   margin-right: 0.3em;
+}
+
+body.home-classic .onepage-aside-list__item--email > span {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.32rem;
+  white-space: normal;
+}
+
+body.home-classic .onepage-aside-list__item--email .icon-pad-right {
+  flex: 0 0 1rem;
+  padding-right: 0;
+  margin-right: 0;
+  line-height: 1.35;
+}
+
+body.home-classic .onepage-aside-list__email-text {
+  min-width: 0;
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
 }
 
 body.home-classic .onepage-section {
