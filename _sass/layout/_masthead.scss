@@ -9,10 +9,10 @@
   top: 0;
   width: 100%;
 
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+  -webkit-animation: intro 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+          animation: intro 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  -webkit-animation-delay: 0.08s;
+          animation-delay: 0.08s;
   z-index: 20;
 
   &::after {
@@ -27,7 +27,7 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: 0.5em 1em;
+    padding: 0.32em 0.9em;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
@@ -61,7 +61,7 @@
   white-space: nowrap;
 
   &--lg {
-    padding-right: 2em;
+    padding-right: 1.2em;
     font-weight: 700;
   }
 }

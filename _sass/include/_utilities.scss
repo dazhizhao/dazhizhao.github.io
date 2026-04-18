@@ -200,7 +200,20 @@ body:hover .visually-hidden button {
     color: #000;
   }
 
+  .fas,
+  .fab,
+  .fa-solid,
+  .fa-regular,
+  .fa-brands,
+  .ai {
+    display: inline-block;
+    min-width: 1.25em;
+    text-align: center;
+    color: currentColor;
+  }
+
   .fa-bluesky,
+  .fa-brands.fa-bluesky,
   .fa-bluesky-square {
     color: $bluesky-color;
   }
@@ -228,6 +241,7 @@ body:hover .visually-hidden button {
   }
 
   .fa-github,
+  .fa-brands.fa-github,
   .fa-github-alt,
   .fa-github-square {
     color: $github-color;
@@ -253,11 +267,13 @@ body:hover .visually-hidden button {
   }
 
   .fa-linkedin,
+  .fa-brands.fa-linkedin,
   .fa-linkedin-square {
     color: $linkedin-color;
   }
 
   .fa-mastodon,
+  .fa-brands.fa-mastodon,
   .fa-mastodon-square {
     color: $mastodon-color;
   }
@@ -307,6 +323,7 @@ body:hover .visually-hidden button {
   }
 
   .fa-youtube,
+  .fa-brands.fa-youtube,
   .fa-youtube-square,
   .fa-youtube-play {
     color: $youtube-color;
@@ -316,6 +333,15 @@ body:hover .visually-hidden button {
   .fa-xing-square {
     color: $xing-color;
   }
+}
+
+.sidebar .social-icons .fas,
+.sidebar .social-icons .fab,
+.sidebar .social-icons .fa-solid,
+.sidebar .social-icons .fa-regular,
+.sidebar .social-icons .fa-brands,
+.sidebar .social-icons .ai {
+  color: #111 !important;
 }
 
 

@@ -13,6 +13,12 @@ var $hlinks = $('#site-nav .hidden-links');
 
 var breaks = [];
 
+function syncLayoutMetrics() {
+  var mastheadHeight = $('.masthead').outerHeight() || 0;
+  document.documentElement.style.setProperty('--masthead-height', mastheadHeight + 'px');
+  $('body').css('padding-top', mastheadHeight + 'px');
+}
+
 function updateNav() {
 
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
@@ -58,14 +64,7 @@ function updateNav() {
   // Keep counter updated
   $btn.attr("count", breaks.length);
 
-  // update masthead height and the body/sidebar top padding
-  var mastheadHeight = $('.masthead').height();
-  $('body').css('padding-top', mastheadHeight + 'px');
-  if ($(".author__urls-wrapper button").is(":visible")) {
-    $(".sidebar").css("padding-top", "");
-  } else {
-    $(".sidebar").css("padding-top", mastheadHeight + "px");
-  }
+  syncLayoutMetrics();
 
 }
 
@@ -74,9 +73,11 @@ function updateNav() {
 $(window).on('resize', function () {
   updateNav();
 });
-screen.orientation.addEventListener("change", function () {
-  updateNav();
-});
+if (screen.orientation && screen.orientation.addEventListener) {
+  screen.orientation.addEventListener("change", function () {
+    updateNav();
+  });
+}
 
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');

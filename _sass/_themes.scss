@@ -28,6 +28,8 @@ $times                      : Times, serif;
 $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
+$source-serif               : "Source Serif 4", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+$cormorant                  : "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
 /* Type scale */
 $type-size-1                : 2.441em;  // ~39.056px
@@ -39,8 +41,8 @@ $type-size-6                : 0.75em;   // ~12px
 $type-size-7                : 0.6875em; // ~11px
 $type-size-8                : 0.625em;  // ~10px
 
-$global-font-family         : $sans-serif;
-$header-font-family         : $sans-serif;
+$global-font-family         : $source-serif;
+$header-font-family         : $cormorant;
 $caption-font-family        : $serif;
 
 /* ==========================================================================
