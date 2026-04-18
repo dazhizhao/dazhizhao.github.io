@@ -50,7 +50,7 @@ redirect_from:
     </ul>
   </div>
   <div class="onepage-hero__body">
-    <h1 class="onepage-hero__title">Dazhi Zhao 赵大志</h1>
+    <h1 class="onepage-hero__title">Dazhi Zhao <span class="onepage-hero__title-zh">赵大志</span></h1>
     <p>Hi! I'm from the ancient city Xi'an, China, and I'm currently a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
 
     <p class="onepage-hero__focus">
