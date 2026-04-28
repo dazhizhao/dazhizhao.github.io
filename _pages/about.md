@@ -51,7 +51,7 @@ redirect_from:
   </div>
   <div class="onepage-hero__body">
     <h1 class="onepage-hero__title">Dazhi Zhao <span class="onepage-hero__title-zh">赵大志</span></h1>
-    <p>Hi! I am originally from Xi'an, one of China's historic capitals, and I am currently a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
+    <p>Hi! I am a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>. I was born in Xi'an, one of China's historic capitals.</p>
 
     <p class="onepage-hero__focus">
       <span class="onepage-hero__focus-label">My research interests include:</span>
