@@ -51,16 +51,18 @@ redirect_from:
   </div>
   <div class="onepage-hero__body">
     <h1 class="onepage-hero__title">Dazhi Zhao <span class="onepage-hero__title-zh">赵大志</span></h1>
-    <p>Hi! I am a third-year undergraduate majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>. I was born in Xi'an, one of China's historic capitals.</p>
+    <p>Hi! I am Dazhi Zhao (赵大志), a third-year undergraduate student majoring in Engineering Mechanics at the <a href="https://aero-mech.tongji.edu.cn/">School of Aerospace Engineering and Applied Mechanics</a>, <a href="https://www.tongji.edu.cn/">Tongji University</a>.</p>
+
+    <p>I am currently doing my visiting in the <a href="https://cetxue.people.ust.hk/">CMSL Group</a> at <a href="https://hkust.edu.hk/">HKUST</a>, working with <a href="https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju">Prof. Tianju Xue</a>.</p>
 
     <p class="onepage-hero__focus">
       <span class="onepage-hero__focus-label">My research interests include:</span>
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Data-driven design</span>
       <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Differentiable simulation</span>
-      <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Inverse problem</span>
+      <span class="onepage-hero__focus-item"><span class="onepage-hero__focus-dot" aria-hidden="true">·</span>Inverse problems</span>
     </p>
 
-    <p>I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Keke Tang</a> of FCM Lab and also by <a href="https://www.ruirangerfan.com/">Prof. Rui Fan</a> of the <a href="https://mias.group/">MIAS Group</a>, both at Tongji University.</p>
+    <p>At Tongji University, I am advised by <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Keke Tang</a> from the FCM Lab and <a href="https://www.ruirangerfan.com/">Prof. Rui Fan</a> from the <a href="https://mias.group/">MIAS Group</a>.</p>
 
   </div>
 </section>
@@ -71,6 +73,11 @@ redirect_from:
   </div>
 
   <div class="onepage-newsbox" aria-label="News updates">
+    <article class="onepage-news-entry">
+      <p class="onepage-news-entry__date">2026/06/13</p>
+      <p class="onepage-news-entry__body">Our phase field paper was accepted by AES.</p>
+    </article>
+
     <article class="onepage-news-entry">
       <p class="onepage-news-entry__date">2026/04/18</p>
       <p class="onepage-news-entry__body">Our Composite Structures paper, <i>Physics-constrained neural networks for high-fidelity composite failure envelopes</i>, is now online.</p>
@@ -88,7 +95,7 @@ redirect_from:
 
     <article class="onepage-news-entry">
       <p class="onepage-news-entry__date">2026/01/28</p>
-      <p class="onepage-news-entry__body">Started my internship at HKUST and began collaborating with Prof. Tianju Xue on differentiable simulation.</p>
+      <p class="onepage-news-entry__body">Started my internship at HKUST!</p>
     </article>
 
     <article class="onepage-news-entry">
@@ -100,7 +107,7 @@ redirect_from:
 
 <section class="onepage-section" id="publications">
   <div class="onepage-section__head">
-    <h2>Publications</h2>
+    <h2>Selected Publications</h2>
   </div>
 
   <div class="onepage-list">
