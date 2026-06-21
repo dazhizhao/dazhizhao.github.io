@@ -11,4 +11,8 @@
   {% include /analytics-providers/custom.html %}
 {% endcase %}
 
+{% unless site.analytics.provider == "custom" %}
+  {% include /analytics-providers/custom.html %}
+{% endunless %}
+
 {% endif %}
