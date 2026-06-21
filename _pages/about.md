@@ -75,7 +75,7 @@ redirect_from:
   <div class="onepage-newsbox" aria-label="News updates">
     <article class="onepage-news-entry">
       <p class="onepage-news-entry__date">2026/06/13</p>
-      <p class="onepage-news-entry__body">Our phase field paper was accepted by AES.</p>
+      <p class="onepage-news-entry__body">Our phase field paper on an open-source Julia framework was accepted by AES.</p>
     </article>
 
     <article class="onepage-news-entry">
