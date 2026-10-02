@@ -16,7 +16,7 @@ redirect_from:
   - /news/2026-09-17/
   - /news/2026-09/
 subtitle: Dazhi Zhao (赵大志)
-description: Final-year Engineering Mechanics undergraduate at Tongji University. Research in computational mechanics, differentiable simulation, and inverse design.
+description: Final-year Engineering Mechanics undergraduate at Tongji University. Research in computational mechanics, differentiable simulation, and inverse problems.
 profile:
   align: right
   image: profile.png
@@ -29,8 +29,14 @@ latest_posts:
   enabled: false
 ---
 
-I am a final-year undergraduate student in Engineering Mechanics at <a href="https://www.tongji.edu.cn/">Tongji University</a>.
+Hi! I am Dazhi Zhao (赵大志), a final-year undergraduate student majoring in Engineering Mechanics at the [School of Aerospace Engineering and Applied Mechanics](https://aero-mech.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/). I expect to graduate in June 2027.
 
-My research interests are computational mechanics, differentiable simulation, and inverse design. I am interested in developing computational methods that connect physical simulation with model calibration and the design of materials, structures, and manufacturing processes.
+My research interests include:
 
-At Tongji, I have worked with <a href="https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm">Prof. Keke Tang</a> (FCM Lab) and <a href="https://www.ruirangerfan.com/">Prof. Rui Fan</a> (<a href="https://mias.group/">MIAS Group</a>), focusing on data-driven modeling and inverse design. I previously worked as a Research Intern with <a href="https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju">Prof. Tianju Xue</a> (<a href="https://cetxue.people.ust.hk/">CMSL Group</a>) at <a href="https://hkust.edu.hk/">HKUST</a>, focusing on differentiable simulation for model calibration and the design of materials and manufacturing processes.
+- Computational Mechanics
+- Differentiable Simulation
+- Inverse Problems
+
+I am particularly interested in differentiable simulation of systems with discrete events and stochastic dynamics.
+
+At Tongji, I have worked with [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), focusing on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.

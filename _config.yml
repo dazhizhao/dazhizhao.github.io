@@ -3,11 +3,11 @@ first_name: Dazhi
 middle_name: ""
 last_name: Zhao
 contact_note: ""
-description: Computational Mechanics, Differentiable Simulation, and Inverse Design. Dazhi Zhao, Engineering Mechanics at Tongji University.
+description: Computational Mechanics, Differentiable Simulation, and Inverse Problems. Dazhi Zhao, Engineering Mechanics at Tongji University.
 footer_text:
   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a>. Hosted by <a href="https://pages.github.com/">GitHub
   Pages</a>.
-keywords: computational mechanics, differentiable simulation, inverse design
+keywords: computational mechanics, differentiable simulation, inverse problems
 lang: en
 icon: favicon.svg
 apple_touch_icon: apple-touch-icon-180x180.png
