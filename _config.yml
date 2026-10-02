@@ -95,8 +95,6 @@ newsletter:
   enabled: false
   endpoint: null
 collections:
-  news:
-    output: true
   projects:
     output: true
 markdown: kramdown
@@ -227,6 +225,7 @@ enable_publication_badges:
   google_scholar: false
   inspirehep: false
 filtered_bibtex_keywords:
+  - equal_contribution
   - publication_order
   - abbr
   - abstract

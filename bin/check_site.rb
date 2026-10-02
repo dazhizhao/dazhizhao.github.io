@@ -10,13 +10,17 @@ html_files = Dir.glob("#{site}/**/*").select { |f| File.file?(f) && (f.end_with?
 documents = html_files.to_h { |f| [f, Nokogiri::HTML(File.read(f))] }
 home = documents.fetch("#{site}/index.html")
 plain = ->(text) { text.gsub(/\s+/, ' ').strip }
-errors << 'Expected five recent homepage news items' unless home.css('.news tr').size == 5
-errors << 'Missing News section' unless home.at_css('#news')
+errors << 'News must not appear on the homepage' unless home.css('#news, .news').empty?
 errors << 'Expected three selected papers' unless home.css('.publications li').size == 3
 errors << 'Expected three homepage projects' unless home.css('.projects .project-item').size == 3
 manifest['projects'].each do |project|
-  errors << "Missing project: #{project['title']}" unless plain.call(home.text).include?(project['title'])
-  errors << "Missing project description: #{project['title']}" unless plain.call(home.text).include?(project['description'])
+  errors << "Missing original project repository: #{project['url']}" unless home.css('.projects a').any? { |link| link['href'] == project['url'] }
+end
+expected_projects = ['JumpGrad: Differentiable Optimization through Stochastic Mechanics', 'GUI for Phase-Field Fracture Simulation', 'Reinforcement Learning for Torque Control']
+errors << 'Project titles or order changed' unless home.css('.project-list-title').map { |node| plain.call(node.text) } == expected_projects
+errors << 'Unexpected project Details or event label' if home.css('.projects').text.match?(/Details|Hackathon|Track 03/)
+home.css('.project-item').each do |project|
+  errors << 'Project title and repository must share a GitHub URL' unless project.at_css('.project-list-title a')['href'] == project.at_css('.project-list-repository')['href']
 end
 manifest['resources'].each do |item|
   [item['old'], item['new']].uniq.each do |path|
@@ -41,17 +45,19 @@ errors << 'Selected papers are missing or out of order' unless selected_keys == 
 errors << 'Public bibliography is incomplete or out of order' unless publications.css('.publication-text-entry').map { |entry| entry['id'] } == expected_keys
 errors << 'Publications must have no thumbnails' unless publications.css('article img, article picture').empty?
 errors << 'Each public paper must highlight Dazhi Zhao' unless publications.css('.publication-authors strong').size == 6
-errors << 'Missing equal contribution note' unless home.at_css('#zhao2026impact').text.include?('† Equal contribution.')
+errors << 'Contribution explanation must appear once beside the heading' unless home.css('#publications .equal-contribution-note').size == 1 && plain.call(home.css('#about').text).scan('† Equal contribution').size == 1
+errors << 'Missing contribution markers' unless home.css('#zhao2026impact .author sup').size == 2
 %w[Keke Rui MIAS].each { |name| errors << "Missing Tongji relationship: #{name}" unless home.text.include?(name) }
-errors << 'Missing final-year status' unless plain.call(home.text).include?('final year of my B.Eng. in Engineering Mechanics')
-errors << 'Missing completed internship dates' unless plain.call(home.text).include?('From January to September 2026, I was a Research Intern')
-errors << 'Outdated academic status' if home.text.match?(/third.year|currently visiting|Visiting Student/i)
-news = documents.fetch("#{site}/news/index.html")
-errors << 'Expected nine News entries' unless news.css('.news tr').size == 9
-errors << 'News missing from sitemap' unless File.read("#{site}/sitemap.xml").include?('/news/')
-manifest['news'].each do |item|
-  errors << "Missing original News date #{item['date']}" unless resolve.call("/news/#{item['date']}/")
+errors << 'Missing final-year status' unless plain.call(home.text).include?('final-year undergraduate student in Engineering Mechanics')
+errors << 'Missing completed internship description' unless plain.call(home.text).include?('I previously worked as a Research Intern')
+errors << 'Outdated academic status' if home.text.match?(/third.year|currently visiting|Visiting Student|January to September|expect to graduate/i)
+news_paths = ['/news/'] + manifest['news'].map { |item| "/news/#{item['date']}/" } + %w[/news/2026-08-28/ /news/2026-09-17/ /news/2026-09/]
+news_paths.each do |path|
+  target = resolve.call(path)
+  doc = target && documents[File.expand_path(target)]
+  errors << "News URL must redirect home: #{path}" unless doc&.at_css('meta[http-equiv="refresh"]') && doc.at_css('link[rel="canonical"]')&.[]('href') == 'https://dazhizhao.github.io/'
 end
+errors << 'News URLs must not appear in sitemap' if File.read("#{site}/sitemap.xml").include?('/news/')
 # Scan every production artifact, including JSON, JavaScript, XML and bibliography files.
 # This runs with the ignored local preview source still present on the developer machine.
 private_patterns = [/Differentiable Phase.Field Simulation/i, /Shuheng.{0,20}Liao/i, /Liao.{0,20}Shuheng/i, /local multiscale statistics/i, /local_preview/]
@@ -63,6 +69,7 @@ end
 documents.each do |file, doc|
   relative = file.delete_prefix(site)
   next if doc.at_css('meta[http-equiv="refresh"]')
+  errors << "News link remains in #{relative}" unless doc.css('a[href^="/news/"], a[href="/#news"]').empty?
   errors << "Demo content in #{relative}" if doc.text.match?(/Albert Einstein|GitHub University|Paper Title Number|Blog Post number|Your Name|You\. R\. Name|example_pdf/i)
   doc.css('a[href], img[src], script[src], link[href]').each do |node|
     link = node['href'] || node['src']

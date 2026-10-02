@@ -1,17 +1,13 @@
 ---
 layout: page
-title: GUI for Phase-Field Fracture Workflows
-description: An interface-oriented research tool that streamlines phase-field fracture
-  simulation workflows, making model setup, execution, and result inspection more
-  accessible.
+title: GUI for Phase-Field Fracture Simulation
+description: A graphical interface for setting up phase-field fracture simulations, running analyses, and viewing results.
 category: Research Software
 importance: 1
 github: https://github.com/FCMzp05/PhaseFieldFracture
 permalink: /projects/phase-field-fracture/
 ---
 
-**Research Software**
-
-An interface-oriented research tool that streamlines phase-field fracture simulation workflows, making model setup, execution, and result inspection more accessible.
+A graphical interface for setting up phase-field fracture simulations, running analyses, and viewing results.
 
 [Repository](https://github.com/FCMzp05/PhaseFieldFracture)

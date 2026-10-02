@@ -6,7 +6,7 @@ Personal academic website at [dazhizhao.github.io](https://dazhizhao.github.io),
 
 The October 2026 migration uses the official al-folio v1 starter at commit `40c06007dab344970b681ba63b2241b1a8209ec1`, with `al_folio_core` 1.0.15 and the upstream plugin versions locked in `Gemfile.lock`. Layouts, styles, and browser runtime come from the al-folio gems.
 
-Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, `_includes/news.liquid`, `_includes/selected_papers.liquid`, `assets/css/main.scss`, and `assets/js/bibsearch.js`. They retain capitalized section titles and old homepage anchors, share the compact project list, optimize image delivery, show month-only dates where appropriate, and support private local publication previews. The bibliography search override passes a callback to its debounce timer so filtering does not trigger a Content Security Policy error. `.al-folio-overrides.yml` records the reviewed upstream versions. `_layouts/bib_text.liquid` renders the full Publications page without thumbnails.
+Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, `_includes/selected_papers.liquid`, `assets/css/main.scss`, and `assets/js/bibsearch.js`. They retain capitalized section titles and old homepage anchors, share the compact project list, optimize image delivery, and support private local publication previews. The bibliography search override passes a callback to its debounce timer so filtering does not trigger a Content Security Policy error. `.al-folio-overrides.yml` records the reviewed upstream versions. `_layouts/bib_text.liquid` renders the full Publications page without thumbnails.
 
 ## Content
 
@@ -16,18 +16,17 @@ Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, 
 | Public publications                                             | `_bibliography/papers.bib` |
 | Existing publication details and the unlisted conference record | `_pages/publication/`      |
 | Projects                                                        | `_projects/`               |
-| News                                                            | `_news/`                   |
 | CV data                                                         | `assets/json/resume.json`  |
 | Contact and social links                                        | `_data/socials.yml`        |
 | Profile, publication figures, and icons                         | `assets/img/`              |
 
 The CV remains accessible at `/cv/` for compatibility and is omitted from navigation. There is no CV PDF or Blog. The conference record retains its original address and stays outside publication lists. Original image URLs under `/images/` remain available as static copies.
 
-The October 2026 update uses the latest CV and publisher/Crossref metadata for six public papers. `publication_order` in the BibTeX source sets their CV order without changing dates. Only the first three are selected for the homepage. Dagger markers identify equal contribution. The six-paper public list was also compared with the Google Scholar profile.
+The October 2026 update uses the latest CV and publisher/Crossref metadata for six public papers. `publication_order` in the BibTeX source sets their CV order without changing dates. Only the first three are selected for the homepage. Dagger markers identify equal contribution. The homepage shows the explanation once beside Selected Publications; the full bibliography retains its contribution note. The six-paper public list was also compared with the Google Scholar profile.
 
-News has been restored at the owner's request: the six historical entries plus IJDM publication (August 28), npj publication (September 17), and completion of the HKUST internship (September 2026). The homepage shows the five newest entries; All News preserves the complete archive and original detail URLs. `docs/migration-manifest.json` retains the original content inventory and resource hashes.
+News has been removed from the homepage, navigation, search, and sitemap. The archive remains in Git history; its index and nine former detail URLs redirect to the homepage. `docs/migration-manifest.json` retains the original content inventory and resource hashes.
 
-The two original projects remain intact. JumpGrad is listed first; its description and the diagram on its detail page come from the [public repository README](https://github.com/dazhizhao/stochastic-stick-slip-tesseract). The diagram is copied unchanged from commit `f04d3c37156d871dc18d5d149c7584c25f162de8` and is covered by that repository's [Apache 2.0 license](https://github.com/dazhizhao/stochastic-stick-slip-tesseract/blob/main/LICENSE).
+All three project titles and Repository links open their GitHub repositories. The two earlier project descriptions have been shortened; their original detail URLs remain available. JumpGrad is listed first; its description and the diagram on its detail page come from the [public repository README](https://github.com/dazhizhao/stochastic-stick-slip-tesseract). The diagram is copied unchanged from commit `f04d3c37156d871dc18d5d149c7584c25f162de8` and is covered by that repository's [Apache 2.0 license](https://github.com/dazhizhao/stochastic-stick-slip-tesseract/blob/main/LICENSE).
 
 ## Local development
 

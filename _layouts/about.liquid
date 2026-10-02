@@ -39,12 +39,6 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-    {% if page.announcements.enabled %}
-      <h2 id="news"><a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a></h2>
-      {% include news.liquid limit=true %}
-      <p class="news-archive-link"><a href="{{ '/news/' | relative_url }}">All News</a></p>
-    {% endif %}
-
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
@@ -55,8 +49,9 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2 id="publications">
+      <h2 id="publications" class="selected-heading">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+        <small class="equal-contribution-note">† Equal contribution</small>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}

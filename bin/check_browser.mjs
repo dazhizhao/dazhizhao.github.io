@@ -38,7 +38,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
   page.on("response", (response) => {
     if (response.status() >= 400 && response.url().startsWith(base)) errors.push(`${device}: ${response.status()} ${response.url()}`);
   });
-  for (const route of ["/", "/publications/", "/projects/", "/projects/jumpgrad/", "/news/", "/sitemap/", "/cv/"]) {
+  for (const route of ["/", "/publications/", "/projects/", "/projects/jumpgrad/", "/sitemap/", "/cv/"]) {
     const response = await page.goto(base + route, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200, route);
     await page.evaluate(() => document.fonts.ready);
@@ -53,9 +53,11 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
     assert.equal(state.overflow, false, `${device} ${route}: horizontal overflow`);
     assert.equal(state.background, "rgb(255, 255, 255)", `${device} ${route}: background`);
     assert.deepEqual(state.brokenImages, [], `${device} ${route}: images`);
-    assert(!state.nav.some((s) => /^(CV|Blog)$/.test(s)), "CV and Blog must not appear in navigation");
+    assert(!state.nav.some((s) => /^(CV|Blog|News)$/.test(s)), "CV, Blog, and News must not appear in navigation");
     if (route === "/") {
-      assert.equal(await page.locator(".news tr").count(), 5);
+      assert.equal(await page.locator("#news, .news").count(), 0);
+      assert.equal(await page.locator("#publications .equal-contribution-note").count(), 1);
+      assert.equal((await page.locator("#about").innerText()).split("† Equal contribution").length - 1, 1);
       assert.equal(await page.locator(".publications li").count(), preview ? 4 : 3);
       assert.deepEqual(await page.locator(".selected-publications .row > div[id]").evaluateAll((els) => els.map((el) => el.id)), [
         "zhao2026autoregressive",
@@ -72,15 +74,33 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
       }
       assert.match(
         await page.locator("#about .clearfix").innerText(),
-        /final year[\s\S]*June 2027[\s\S]*Rui Fan[\s\S]*January to September 2026, I was a Research Intern/
+        /final-year undergraduate[\s\S]*Rui Fan[\s\S]*I previously worked as a Research Intern[\s\S]*HKUST/
       );
-      for (const title of ["News", "Selected Publications", "Projects"]) assert(state.headings.includes(title));
+      for (const title of ["Selected Publications", "Projects"]) assert(state.headings.some((heading) => heading.startsWith(title)));
+      if (device === "desktop") {
+        const spacing = await page.evaluate(() => {
+          const profile = document.querySelector("#about .profile");
+          const box = profile.getBoundingClientRect();
+          const walker = document.createTreeWalker(document.querySelector("#about .clearfix"), NodeFilter.SHOW_TEXT);
+          const rightEdges = [];
+          while (walker.nextNode()) {
+            if (!walker.currentNode.textContent.trim()) continue;
+            const range = document.createRange();
+            range.selectNodeContents(walker.currentNode);
+            for (const rect of range.getClientRects()) {
+              if (rect.width && rect.bottom > box.top && rect.top < box.bottom) rightEdges.push(rect.right);
+            }
+          }
+          return { margin: parseFloat(getComputedStyle(profile).marginLeft), gap: box.left - Math.max(...rightEdges) };
+        });
+        assert.equal(spacing.margin, 40);
+        assert(spacing.gap >= 39, `Portrait text gap: ${spacing.gap}`);
+      }
       await page.waitForFunction(() => Array.isArray(document.querySelector("ninja-keys")?.data));
       const searchItems = await page
         .locator("ninja-keys")
         .evaluate((search) => search.data.map(({ title, section, id }) => ({ title, section, id })));
-      assert(searchItems.some((item) => item.id === "nav-news"));
-      assert.equal(searchItems.filter((item) => item.section === "News").length, 9);
+      assert(!searchItems.some((item) => item.id === "nav-news" || item.section === "News"));
       assert(!searchItems.some((item) => /Differentiable Phase.Field|Shuheng|local_preview/.test(item.title + item.id)));
       if (device === "mobile") {
         await page.locator("button.navbar-toggler").click();
@@ -89,6 +109,26 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
         await page.waitForLoadState("networkidle");
         await page.goto(base + "/", { waitUntil: "networkidle" });
         await loadLazyImages(page);
+      }
+    }
+    if (route === "/" || route === "/projects/") {
+      assert.deepEqual(
+        await page
+          .locator(".project-list-title")
+          .allTextContents()
+          .then((titles) => titles.map((title) => title.trim())),
+        [
+          "JumpGrad: Differentiable Optimization through Stochastic Mechanics",
+          "GUI for Phase-Field Fracture Simulation",
+          "Reinforcement Learning for Torque Control",
+        ]
+      );
+      assert(!/Details|Hackathon|Track 03/.test(await page.locator(".project-list").innerText()));
+      for (const project of await page.locator(".project-item").all()) {
+        assert.equal(
+          await project.locator(".project-list-title a").getAttribute("href"),
+          await project.locator(".project-list-repository").getAttribute("href")
+        );
       }
     }
     if (route === "/publications/") {
@@ -116,6 +156,16 @@ for (const [from, to] of [
   ["/resume", "/cv/"],
   ["/resume-json", "/cv/"],
   ["/portfolio/", "/projects/"],
+  ["/news/", "/"],
+  ["/news/2025-07-18/", "/"],
+  ["/news/2026-01-28/", "/"],
+  ["/news/2026-03-08/", "/"],
+  ["/news/2026-03-17/", "/"],
+  ["/news/2026-04-18/", "/"],
+  ["/news/2026-06-13/", "/"],
+  ["/news/2026-08-28/", "/"],
+  ["/news/2026-09-17/", "/"],
+  ["/news/2026-09/", "/"],
 ]) {
   await page.goto(base + from, { waitUntil: "networkidle" });
   await page.waitForURL((url) => url.pathname === to);
