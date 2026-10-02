@@ -66,6 +66,19 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
         ...(preview ? ["local_preview"] : []),
       ]);
       assert.equal(await page.locator(".projects .project-item").count(), 3);
+      for (const entry of await page.locator(".selected-publications .row > div[id]:not(#local_preview)").all()) {
+        const links = entry.locator(".links a");
+        assert.deepEqual(await links.allTextContents(), ["DOI", "BIB", "PDF"]);
+        const sizes = await links.evaluateAll((els) =>
+          els.map((el) => ({ width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }))
+        );
+        assert(sizes.every((size) => Math.abs(size.width - sizes[0].width) < 1 && Math.abs(size.height - sizes[0].height) < 1));
+        await entry.getByRole("button", { name: "BIB", exact: true }).click();
+        assert(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open")));
+        assert.match(await entry.locator(".bibtex.hidden").innerText(), /@article/);
+        await entry.getByRole("button", { name: "BIB", exact: true }).click();
+        assert(!(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open"))));
+      }
       const portrait = await page.locator(".profile img").boundingBox();
       assert.equal(Math.round(portrait.width), device === "mobile" ? 180 : 200);
       for (const image of await page.locator(".publications img.preview").all()) {

@@ -42,6 +42,13 @@ publications = documents.fetch("#{site}/publications/index.html")
 expected_keys = %w[zhao2026autoregressive zhao2026impact xie2026diffusion zhang2026failure jin2026generative zhang2026phasefield]
 selected_keys = home.css('.selected-publications .row > div[id]').map { |entry| entry['id'] }
 errors << 'Selected papers are missing or out of order' unless selected_keys == expected_keys.first(3)
+home.css('.selected-publications .row > div[id]').each do |entry|
+  links = entry.css('.links a')
+  errors << "Inconsistent selected paper buttons: #{entry['id']}" unless links.map { |link| plain.call(link.text) } == %w[DOI BIB PDF]
+  pdf_path = links.find { |link| plain.call(link.text) == 'PDF' }&.[]('href')
+  pdf_file = pdf_path && resolve.call(pdf_path)
+  errors << "Missing or invalid paper PDF: #{entry['id']}" unless pdf_file && File.binread(pdf_file, 5) == '%PDF-'
+end
 errors << 'Public bibliography is incomplete or out of order' unless publications.css('.publication-text-entry').map { |entry| entry['id'] } == expected_keys
 errors << 'Publications must have no thumbnails' unless publications.css('article img, article picture').empty?
 errors << 'Each public paper must highlight Dazhi Zhao' unless publications.css('.publication-authors strong').size == 6

@@ -15,6 +15,19 @@
   text-decoration: none;
 }
 
+.selected-publications .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+
+  a.btn {
+    min-width: 64px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
 .publication-text-list {
   ol.bibliography {
     padding-left: 1.5rem;
