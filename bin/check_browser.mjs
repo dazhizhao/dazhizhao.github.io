@@ -81,20 +81,22 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
         const spacing = await page.evaluate(() => {
           const profile = document.querySelector("#about .profile");
           const box = profile.getBoundingClientRect();
-          const walker = document.createTreeWalker(document.querySelector("#about .clearfix"), NodeFilter.SHOW_TEXT);
+          const copy = document.querySelector("#about .about-copy");
+          const copyBox = copy.getBoundingClientRect();
+          const walker = document.createTreeWalker(copy, NodeFilter.SHOW_TEXT);
           const rightEdges = [];
           while (walker.nextNode()) {
             if (!walker.currentNode.textContent.trim()) continue;
             const range = document.createRange();
             range.selectNodeContents(walker.currentNode);
             for (const rect of range.getClientRects()) {
-              if (rect.width && rect.bottom > box.top && rect.top < box.bottom) rightEdges.push(rect.right);
+              if (rect.width) rightEdges.push(rect.right);
             }
           }
-          return { margin: parseFloat(getComputedStyle(profile).marginLeft), gap: box.left - Math.max(...rightEdges) };
+          return { columnGap: box.left - copyBox.right, textGap: box.left - Math.max(...rightEdges) };
         });
-        assert.equal(spacing.margin, 60);
-        assert(spacing.gap >= 59, `Portrait text gap: ${spacing.gap}`);
+        assert.equal(spacing.columnGap, 60);
+        assert(spacing.textGap >= 59, `All About text must stay in its column: ${spacing.textGap}`);
       }
       await page.waitForFunction(() => Array.isArray(document.querySelector("ninja-keys")?.data));
       const searchItems = await page

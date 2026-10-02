@@ -6,7 +6,7 @@ Personal academic website at [dazhizhao.github.io](https://dazhizhao.github.io),
 
 The October 2026 migration uses the official al-folio v1 starter at commit `40c06007dab344970b681ba63b2241b1a8209ec1`, with `al_folio_core` 1.0.15 and the upstream plugin versions locked in `Gemfile.lock`. Layouts, styles, and browser runtime come from the al-folio gems.
 
-Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, `_includes/selected_papers.liquid`, `assets/css/main.scss`, and `assets/js/bibsearch.js`. They retain capitalized section titles and old homepage anchors, share the compact project list, optimize image delivery, and support private local publication previews. The bibliography search override passes a callback to its debounce timer so filtering does not trigger a Content Security Policy error. `.al-folio-overrides.yml` records the reviewed upstream versions. `_layouts/bib_text.liquid` renders the full Publications page without thumbnails.
+Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, `_includes/selected_papers.liquid`, `assets/css/main.scss`, and `assets/js/bibsearch.js`. They retain capitalized section titles and old homepage anchors, share the compact project list, optimize image delivery, and support private local publication previews. The About text and portrait use separate desktop columns with a 60px gap, stacking on mobile. The bibliography search override passes a callback to its debounce timer so filtering does not trigger a Content Security Policy error. `.al-folio-overrides.yml` records the reviewed upstream versions. `_layouts/bib_text.liquid` renders the full Publications page without thumbnails.
 
 ## Content
 

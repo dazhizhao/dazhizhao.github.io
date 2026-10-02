@@ -47,10 +47,23 @@
   }
 }
 
+#about .about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-areas: "copy profile";
+  column-gap: 60px;
+  align-items: start;
+}
+
+#about .about-copy {
+  grid-area: copy;
+  min-width: 0;
+}
+
 #about .profile {
+  grid-area: profile;
   width: 200px;
   max-width: 100%;
-  margin-left: 60px;
 
   img {
     height: auto;
@@ -68,8 +81,11 @@
     margin-bottom: 0.5rem;
   }
 
+  #about .about-intro {
+    display: block;
+  }
+
   #about .profile {
-    float: none !important;
     width: 180px;
     margin: 0 auto 1.5rem;
   }
