@@ -5,6 +5,13 @@ permalink: /
 redirect_from:
   - /about/
   - /about.html
+  - /news/
+  - /news/2025-07-18/
+  - /news/2026-01-28/
+  - /news/2026-03-08/
+  - /news/2026-03-17/
+  - /news/2026-04-18/
+  - /news/2026-06-13/
 subtitle: Dazhi Zhao (赵大志)
 profile:
   align: right
@@ -14,10 +21,6 @@ profile:
     China</p>
 selected_papers: true
 social: true
-announcements:
-  enabled: true
-  scrollable: false
-  limit: null
 latest_posts:
   enabled: false
 ---

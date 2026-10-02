@@ -13,7 +13,6 @@ Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, 
 | Content                                                         | Source                     |
 | --------------------------------------------------------------- | -------------------------- |
 | Biography and research interests                                | `_pages/about.md`          |
-| News                                                            | `_news/`                   |
 | Displayed publications                                          | `_bibliography/papers.bib` |
 | Existing publication details and the unlisted conference record | `_pages/publication/`      |
 | Projects                                                        | `_projects/`               |
@@ -23,7 +22,7 @@ Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, 
 
 The CV remains accessible at `/cv/` for compatibility and is omitted from navigation. There is no CV PDF or Blog. The conference record retains its original address and stays outside publication lists. Original image URLs under `/images/` remain available as static copies.
 
-The migration preserves the previous site's personal content, dates, and external links. `docs/migration-manifest.json` records migrated entries and original resource checksums. The previous Academic Pages examples and all al-folio demo content are excluded.
+The migration preserved the previous site's personal content, dates, and external links. News was subsequently removed from the homepage, navigation, search, and sitemap at the owner's request. The six original entries remain in Git history; `/news/` and their former detail URLs redirect to the homepage. `docs/migration-manifest.json` retains the historical migration inventory and original resource checksums. The previous Academic Pages examples and all al-folio demo content are excluded.
 
 ## Local development
 

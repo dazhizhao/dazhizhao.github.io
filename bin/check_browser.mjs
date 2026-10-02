@@ -37,7 +37,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
   page.on("response", (response) => {
     if (response.status() >= 400 && response.url().startsWith(base)) errors.push(`${device}: ${response.status()} ${response.url()}`);
   });
-  for (const route of ["/", "/publications/", "/projects/", "/news/", "/cv/"]) {
+  for (const route of ["/", "/publications/", "/projects/", "/sitemap/", "/cv/"]) {
     const response = await page.goto(base + route, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200, route);
     await page.evaluate(() => document.fonts.ready);
@@ -52,12 +52,17 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
     assert.equal(state.overflow, false, `${device} ${route}: horizontal overflow`);
     assert.equal(state.background, "rgb(255, 255, 255)", `${device} ${route}: background`);
     assert.deepEqual(state.brokenImages, [], `${device} ${route}: images`);
-    assert(!state.nav.some((s) => /^(CV|Blog)$/.test(s)), "CV and Blog must not appear in navigation");
+    assert(!state.nav.some((s) => /^(CV|Blog|News)$/.test(s)), "CV, Blog, and News must not appear in navigation");
     if (route === "/") {
-      assert.equal(await page.locator(".news tr").count(), 6);
+      assert.equal(await page.locator("#news, .news").count(), 0);
       assert.equal(await page.locator(".publications li").count(), 3);
       assert.equal(await page.locator(".projects .project-item").count(), 2);
-      for (const title of ["News", "Selected Publications", "Projects"]) assert(state.headings.includes(title));
+      for (const title of ["Selected Publications", "Projects"]) assert(state.headings.includes(title));
+      await page.waitForFunction(() => Array.isArray(document.querySelector("ninja-keys")?.data));
+      const searchItems = await page
+        .locator("ninja-keys")
+        .evaluate((search) => search.data.map(({ title, section, id }) => ({ title, section, id })));
+      assert(!searchItems.some((item) => item.section === "News" || item.id.startsWith("news-") || item.id === "nav-news"));
       if (device === "mobile") {
         await page.locator("button.navbar-toggler").click();
         await page.getByRole("link", { name: "Publications", exact: true }).first().click();
@@ -81,6 +86,13 @@ for (const [from, to] of [
   ["/resume", "/cv/"],
   ["/resume-json", "/cv/"],
   ["/portfolio/", "/projects/"],
+  ["/news/", "/"],
+  ["/news/2025-07-18/", "/"],
+  ["/news/2026-01-28/", "/"],
+  ["/news/2026-03-08/", "/"],
+  ["/news/2026-03-17/", "/"],
+  ["/news/2026-04-18/", "/"],
+  ["/news/2026-06-13/", "/"],
 ]) {
   await page.goto(base + from, { waitUntil: "networkidle" });
   await page.waitForURL((url) => url.pathname === to);

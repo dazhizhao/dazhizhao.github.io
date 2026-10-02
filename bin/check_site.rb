@@ -10,11 +10,7 @@ html_files = Dir.glob("#{site}/**/*").select { |f| File.file?(f) && (f.end_with?
 documents = html_files.to_h { |f| [f, Nokogiri::HTML(File.read(f))] }
 home = documents.fetch("#{site}/index.html")
 plain = ->(text) { text.gsub(/\s+/, ' ').strip }
-manifest['news'].each do |item|
-  expected = plain.call(Nokogiri::HTML.fragment(item['text']).text)
-  errors << "Missing news: #{expected}" unless plain.call(home.text).include?(expected)
-end
-errors << 'Expected six homepage news rows' unless home.css('.news tbody tr, .news table > tr').size == 6
+errors << 'News must not appear on the homepage' unless home.css('#news, .news').empty?
 errors << 'Expected three selected papers' unless home.css('.publications li').size == 3
 errors << 'Expected two homepage projects' unless home.css('.projects .project-item').size == 2
 manifest['projects'].each do |project|
@@ -34,12 +30,20 @@ end
 manifest['publications'].each do |item|
   errors << "Missing legacy publication: #{item['permalink']}" unless resolve.call(item['permalink'])
 end
-%w[/publications/ /projects/ /news/ /cv/ /cv-json/ /resume /resume-json /about/ /about.html /portfolio/ /sitemap/ /sitemap.xml /404.html].each do |path|
+%w[/publications/ /projects/ /cv/ /cv-json/ /resume /resume-json /about/ /about.html /portfolio/ /sitemap/ /sitemap.xml /404.html].each do |path|
   errors << "Missing page or redirect: #{path}" unless resolve.call(path)
 end
+news_paths = ['/news/'] + manifest['news'].map { |item| "/news/#{item['date']}/" }
+news_paths.each do |path|
+  target = resolve.call(path)
+  doc = target && documents[File.expand_path(target)]
+  errors << "News URL must redirect home: #{path}" unless doc&.at_css('meta[http-equiv="refresh"]') && doc.at_css('link[rel="canonical"]')&.[]('href') == 'https://dazhizhao.github.io/'
+end
+errors << 'News URLs must not appear in the sitemap' if File.read("#{site}/sitemap.xml").include?('/news/')
 documents.each do |file, doc|
   relative = file.delete_prefix(site)
   next if doc.at_css('meta[http-equiv="refresh"]')
+  errors << "News link remains in #{relative}" unless doc.css('a[href^="/news/"], a[href="/#news"]').empty?
   errors << "Demo content in #{relative}" if doc.text.match?(/Albert Einstein|GitHub University|Paper Title Number|Blog Post number|Your Name|You\. R\. Name|example_pdf/i)
   doc.css('a[href], img[src], script[src], link[href]').each do |node|
     link = node['href'] || node['src']
