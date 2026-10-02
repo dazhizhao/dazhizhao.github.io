@@ -1,0 +1,87 @@
+[
+  {
+    "url": "https://aero-mech.tongji.edu.cn/",
+    "result": "200 https://aero-mech.tongji.edu.cn/",
+    "error": ""
+  },
+  {
+    "url": "https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm",
+    "result": "200 https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm",
+    "error": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2603.16209",
+    "result": "200 https://arxiv.org/abs/2603.16209",
+    "error": ""
+  },
+  {
+    "url": "https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju",
+    "result": "200 https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju",
+    "error": ""
+  },
+  {
+    "url": "https://cetxue.people.ust.hk/",
+    "result": "200 https://cetxue.people.ust.hk/",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.1016/j.compstruct.2026.120358",
+    "result": "200 https://linkinghub.elsevier.com/retrieve/pii/S0263822326003235",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.1016/j.tws.2026.114793",
+    "result": "200 https://linkinghub.elsevier.com/retrieve/pii/S0263823126003174",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/FCMzp05/PhaseFieldFracture",
+    "result": "200 https://github.com/FCMzp05/PhaseFieldFracture",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/dazhizhao",
+    "result": "200 https://github.com/dazhizhao",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/dazhizhao/Four-Link-Reinforcement-Learning-for-Torque-Control",
+    "result": "200 https://github.com/dazhizhao/Four-Link-Reinforcement-Learning-for-Torque-Control",
+    "error": ""
+  },
+  {
+    "url": "https://hkust.edu.hk/",
+    "result": "200 https://hkust.edu.hk/",
+    "error": ""
+  },
+  {
+    "url": "https://mias.group/",
+    "result": "200 https://mias.group/",
+    "error": ""
+  },
+  {
+    "url": "https://scholar.google.com/citations?user=kBNngDgAAAAJ&hl=en",
+    "result": "200 https://scholar.google.com/citations?user=kBNngDgAAAAJ&hl=en",
+    "error": ""
+  },
+  {
+    "url": "https://www.icdm2025.sg/docs/Detailed-0715.pdf",
+    "result": "000 https://www.icdm2025.sg/docs/Detailed-0715.pdf",
+    "error": "curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to www.icdm2025.sg:443"
+  },
+  {
+    "url": "https://www.linkedin.com/in/dazhizhao126/",
+    "result": "999 https://www.linkedin.com/in/dazhizhao126/",
+    "error": ""
+  },
+  {
+    "url": "https://www.ruirangerfan.com/",
+    "result": "200 https://www.ruirangerfan.com/",
+    "error": ""
+  },
+  {
+    "url": "https://www.tongji.edu.cn/",
+    "result": "200 https://www.tongji.edu.cn/",
+    "error": ""
+  }
+]

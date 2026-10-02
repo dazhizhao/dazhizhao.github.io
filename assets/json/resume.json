@@ -1,0 +1,51 @@
+{
+  "basics": {
+    "name": "Dazhi Zhao",
+    "email": "zhaodazhi@tongji.edu.cn",
+    "summary": "An undergraduate student at Tongji University.",
+    "location": {
+      "city": "Shanghai",
+      "countryCode": "China",
+      "region": "Yangpu District"
+    },
+    "profiles": [
+      {
+        "network": "Google Scholar",
+        "username": "",
+        "url": "https://scholar.google.com/citations?user=kBNngDgAAAAJ&hl=en"
+      },
+      {
+        "network": "GitHub",
+        "username": "dazhizhao",
+        "url": "https://github.com/dazhizhao"
+      }
+    ],
+    "url": "https://dazhizhao.github.io"
+  },
+  "work": [],
+  "education": [
+    {
+      "institution": "Tongji University",
+      "area": "B.S. in Applied Mechanics",
+      "studyType": "",
+      "startDate": "2023",
+      "endDate": "2027",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "The High School Affiliated to Xi'an Jiaotong University",
+      "area": "High School Student in Science",
+      "studyType": "",
+      "startDate": "2019",
+      "endDate": "2023",
+      "gpa": null,
+      "courses": []
+    }
+  ],
+  "skills": [],
+  "languages": [],
+  "interests": [],
+  "references": [],
+  "publications": []
+}

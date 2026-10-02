@@ -1,89 +1,62 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Dazhi Zhao's personal website
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Personal academic website at [dazhizhao.github.io](https://dazhizhao.github.io), built with [al-folio](https://github.com/alshedivat/al-folio).
 
-# Getting Started
+## Framework
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+The October 2026 migration uses the official al-folio v1 starter at commit `40c06007dab344970b681ba63b2241b1a8209ec1`, with `al_folio_core` 1.0.15 and the upstream plugin versions locked in `Gemfile.lock`. Layouts, styles, and browser runtime come from the al-folio gems.
 
-See more info at https://academicpages.github.io/
+The only local runtime override is `_layouts/about.liquid`: it capitalizes section titles, retains the old homepage anchors, and displays the existing projects using al-folio's project cards. `.al-folio-overrides.yml` records the reviewed upstream version.
 
-## Running locally
+## Content
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+| Content                                                         | Source                     |
+| --------------------------------------------------------------- | -------------------------- |
+| Biography and research interests                                | `_pages/about.md`          |
+| News                                                            | `_news/`                   |
+| Displayed publications                                          | `_bibliography/papers.bib` |
+| Existing publication details and the unlisted conference record | `_pages/publication/`      |
+| Projects                                                        | `_projects/`               |
+| CV data                                                         | `assets/json/resume.json`  |
+| Contact and social links                                        | `_data/socials.yml`        |
+| Profile, publication figures, and icons                         | `assets/img/`              |
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
+The CV remains accessible at `/cv/` for compatibility and is omitted from navigation. There is no CV PDF or Blog. The conference record retains its original address and stays outside publication lists. Original image URLs under `/images/` remain available as static copies.
 
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+The migration preserves the previous site's personal content, dates, and external links. `docs/migration-manifest.json` records migrated entries and original resource checksums. The previous Academic Pages examples and all al-folio demo content are excluded.
 
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and open `.gitignore` then add `vendor` inside it.
+## Local development
 
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
+Use Ruby 3.4.9 and Node.js 24. On this Mac, add `/opt/homebrew/opt/ruby@3.4/bin` to `PATH` before running Bundler.
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-docker compose up
+```sh
+bundle install
+npm ci
+JEKYLL_ENV=production bundle exec jekyll build
+bundle exec ruby bin/check_site.rb
+bundle exec jekyll serve --host 127.0.0.1 --port 4000
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Open `http://127.0.0.1:4000`. The site uses an empty `baseurl`. Image conversion is disabled to retain the original images and animated GIFs.
 
-# Maintenance
+With the local server running, check desktop/mobile rendering, navigation, resources, and redirects:
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+```sh
+npx playwright install chromium
+npm run test:browser
+npm run lint:prettier
+bundle exec al-folio upgrade audit
+bundle exec al-folio upgrade overrides audit
+```
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+Screenshots and the browser report are written to ignored `output/playwright/` files. To check the deployed site, run `npm run test:browser -- https://dazhizhao.github.io`.
 
-## Bugfixes and enhancements
+## Deployment and rollback
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+GitHub Pages uses the **GitHub Actions** publishing source. `.github/workflows/deploy.yml` builds pushes to `master` and `codex/**`, pull requests to `master`, and manual runs. Only `master` deploys, using the GitHub Pages artifact actions. Dependencies and the Ruby version match local development.
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+The original Google Analytics and Cloudflare Web Analytics identifiers are configured in `_config.yml`. No credentials or personal access tokens are required in the repository.
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+The pre-migration source is tagged `pre-al-folio-2026-10-02` at `8bd545050f458996fab76dd255670b30aa50fece`. To roll back the framework, revert the migration commit and any migration-fix commits, push the revert to `master`, then restore Pages to **Deploy from a branch**, `master`, `/ (root)`. Verify the legacy Pages build and the live site. This preserves subsequent Git history.
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+al-folio is MIT-licensed; see `LICENSE`. The previous framework's license is retained in `docs/academic-pages-LICENSE`.

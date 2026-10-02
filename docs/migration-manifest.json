@@ -1,0 +1,127 @@
+{
+  "baseline": "8bd545050f458996fab76dd255670b30aa50fece",
+  "upstream": "40c06007dab344970b681ba63b2241b1a8209ec1",
+  "news": [
+    {
+      "date": "2026-06-13",
+      "text": "Our phase field paper on an open-source Julia framework was accepted by AES."
+    },
+    {
+      "date": "2026-04-18",
+      "text": "Our Composite Structures paper, <i>Physics-constrained neural networks for high-fidelity composite failure envelopes</i>, is now online."
+    },
+    {
+      "date": "2026-03-17",
+      "text": "Our preprint on physics-guided diffusion models for inverse design of disordered metamaterials is now available on arXiv."
+    },
+    {
+      "date": "2026-03-08",
+      "text": "Our Thin-Walled Structures paper on autoregressive inverse design of disordered metamaterials was accepted."
+    },
+    {
+      "date": "2026-01-28",
+      "text": "Started my internship at HKUST!"
+    },
+    {
+      "date": "2025-07-18",
+      "text": "Presented our work on rapid prediction and impact-parameter identification of interlaminar damage at ICDM 2025 in Singapore."
+    }
+  ],
+  "projects": [
+    {
+      "url": "https://github.com/FCMzp05/PhaseFieldFracture",
+      "title": "GUI for Phase-Field Fracture Workflows",
+      "category": "Research Software",
+      "description": "An interface-oriented research tool that streamlines phase-field fracture simulation workflows, making model setup, execution, and result inspection more accessible."
+    },
+    {
+      "url": "https://github.com/dazhizhao/Four-Link-Reinforcement-Learning-for-Torque-Control",
+      "title": "Reinforcement Learning for Torque Control in a Four-Link Mechanism",
+      "category": "Mechanism Control",
+      "description": "A control-oriented project that explores how reinforcement learning can generate effective torque strategies for a coupled four-link mechanical system."
+    }
+  ],
+  "publications": [
+    {
+      "old": "_publications/2025-07-18-rapid-prediction-impact-parameter-identification-of-interlaminar-damage.md",
+      "new": "_pages/publication/2025-07-18-rapid-prediction-impact-parameter-identification-of-interlaminar-damage.md",
+      "permalink": "/publication/2025-07-18-rapid-prediction-impact-parameter-identification-of-interlaminar-damage",
+      "visible": false
+    },
+    {
+      "old": "_publications/2026-03-17-physics-guided-diffusion-models-for-inverse-design-of-disordered-metamaterials.md",
+      "new": "_pages/publication/2026-03-17-physics-guided-diffusion-models-for-inverse-design-of-disordered-metamaterials.md",
+      "permalink": "/publication/2026-03-17-physics-guided-diffusion-models-for-inverse-design-of-disordered-metamaterials",
+      "visible": true
+    },
+    {
+      "old": "_publications/2026-04-01-physics-constrained-neural-networks-for-high-fidelity-composite-failure-envelopes.md",
+      "new": "_pages/publication/2026-04-01-physics-constrained-neural-networks-for-high-fidelity-composite-failure-envelopes.md",
+      "permalink": "/publication/2026-04-01-physics-constrained-neural-networks-for-high-fidelity-composite-failure-envelopes",
+      "visible": true
+    },
+    {
+      "old": "_publications/2026-06-01-autoregressive-inverse-design-of-disordered-metamaterials-for-target-nonlinear-response.md",
+      "new": "_pages/publication/2026-06-01-autoregressive-inverse-design-of-disordered-metamaterials-for-target-nonlinear-response.md",
+      "permalink": "/publication/2026-06-01-autoregressive-inverse-design-of-disordered-metamaterials-for-target-nonlinear-response",
+      "visible": true
+    }
+  ],
+  "resources": [
+    {
+      "old": "images/favicon.ico",
+      "new": "assets/img/favicon.ico",
+      "sha256": "f200c2955d10990a1fcc6359be85b8072d227bf5404bab2822f786211e08ecfa"
+    },
+    {
+      "old": "images/favicon-512x512.png",
+      "new": "assets/img/favicon-512x512.png",
+      "sha256": "fce9fd4c0d58863a5afff679d8e635d6bdbef6ab1bd29af13c4fc8db778b0040"
+    },
+    {
+      "old": "images/apple-touch-icon-180x180.png",
+      "new": "assets/img/apple-touch-icon-180x180.png",
+      "sha256": "424ca39b6c10ca887d526339ea3d177f91f6b712143b82bf49b51e823343de98"
+    },
+    {
+      "old": "images/manifest.json",
+      "new": "images/manifest.json",
+      "sha256": "b35691df8268a6a6421d90ccd70bfed9a7c8376440124d88f75ad55c3becea64"
+    },
+    {
+      "old": "images/profile.png",
+      "new": "assets/img/profile.png",
+      "sha256": "72fc517a0f4baf414e4d6acc451777f1710d835a29dd51d9e54b18afc17af62a"
+    },
+    {
+      "old": "images/favicon-192x192.png",
+      "new": "assets/img/favicon-192x192.png",
+      "sha256": "8fee20fcbd11538cca631e452b1d9101f072f306311b3143334201d4db2b02e8"
+    },
+    {
+      "old": "images/favicon.svg",
+      "new": "assets/img/favicon.svg",
+      "sha256": "f50a48f11d6b288a9f392e6c5fc087262738abd2c138fbe57b0fb88d3a3af960"
+    },
+    {
+      "old": "images/favicon-32x32.png",
+      "new": "assets/img/favicon-32x32.png",
+      "sha256": "c010f2adae2a2c5cf0d3ad1009044ef472ad3bb81b55422ec830114412744506"
+    },
+    {
+      "old": "images/publications/autoregressive_inverse_design.gif",
+      "new": "assets/img/publication_preview/autoregressive_inverse_design.gif",
+      "sha256": "75a6666cadba52ea558e880206f910a57f6e6c45318969142ac5eba9ab0f6623"
+    },
+    {
+      "old": "images/publications/physics_constrained_failure_envelopes.jpg",
+      "new": "assets/img/publication_preview/physics_constrained_failure_envelopes.jpg",
+      "sha256": "68ce3cd57f4caa3e7a7e7783890aa73a5f4ecd3f061f574b20e56fb6b9b6ebf1"
+    },
+    {
+      "old": "images/publications/physics_guided_diffusion_denoising.gif",
+      "new": "assets/img/publication_preview/physics_guided_diffusion_denoising.gif",
+      "sha256": "10ee35318905ea1a1a085ac4ae4af1f3ae0e9863c6fc1fec4e1d36cd4353ded2"
+    }
+  ]
+}
