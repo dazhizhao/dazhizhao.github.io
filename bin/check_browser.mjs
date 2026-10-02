@@ -47,7 +47,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
     if (route === "/") {
       assert.equal(await page.locator(".news tr").count(), 6);
       assert.equal(await page.locator(".publications li").count(), 3);
-      assert.equal(await page.locator(".projects .card").count(), 2);
+      assert.equal(await page.locator(".projects .project-item").count(), 2);
       for (const title of ["News", "Selected Publications", "Projects"]) assert(state.headings.includes(title));
       if (device === "mobile") {
         await page.locator("button.navbar-toggler").click();

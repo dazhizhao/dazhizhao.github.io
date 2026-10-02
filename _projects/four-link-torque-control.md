@@ -5,6 +5,7 @@ description: A control-oriented project that explores how reinforcement learning
   generate effective torque strategies for a coupled four-link mechanical system.
 category: Mechanism Control
 importance: 2
+github: https://github.com/dazhizhao/Four-Link-Reinforcement-Learning-for-Torque-Control
 permalink: /projects/four-link-torque-control/
 ---
 

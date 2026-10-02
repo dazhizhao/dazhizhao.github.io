@@ -16,7 +16,7 @@ manifest['news'].each do |item|
 end
 errors << 'Expected six homepage news rows' unless home.css('.news tbody tr, .news table > tr').size == 6
 errors << 'Expected three selected papers' unless home.css('.publications li').size == 3
-errors << 'Expected two homepage projects' unless home.css('.projects .card').size == 2
+errors << 'Expected two homepage projects' unless home.css('.projects .project-item').size == 2
 manifest['projects'].each do |project|
   errors << "Missing project: #{project['title']}" unless plain.call(home.text).include?(project['title'])
   errors << "Missing project description: #{project['title']}" unless plain.call(home.text).include?(project['description'])

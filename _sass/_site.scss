@@ -1,0 +1,79 @@
+// Small, scoped adjustments to the al-folio layout.
+#about .profile {
+  width: 200px;
+  max-width: 100%;
+  margin-left: 1.5rem;
+
+  img {
+    height: auto;
+  }
+
+  .more-info p {
+    display: block;
+  }
+}
+
+@media (max-width: 575px) {
+  #about .profile {
+    float: none !important;
+    width: 180px;
+    margin: 0 auto 1.5rem;
+  }
+}
+
+.project-list {
+  .project-item {
+    padding: 1rem 0;
+
+    & + .project-item {
+      border-top: 1px solid var(--global-divider-color);
+    }
+  }
+
+  .project-list-title {
+    margin: 0 0 0.375rem;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    a {
+      color: var(--global-text-color);
+
+      &:hover {
+        color: var(--global-theme-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .project-list-description {
+    margin: 0 0 0.375rem;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .project-list-repository {
+    font-size: 15px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#about .social .contact-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 28px;
+  line-height: 1;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-height: 44px;
+  }
+}

@@ -6,6 +6,7 @@ description: An interface-oriented research tool that streamlines phase-field fr
   accessible.
 category: Research Software
 importance: 1
+github: https://github.com/FCMzp05/PhaseFieldFracture
 permalink: /projects/phase-field-fracture/
 ---
 

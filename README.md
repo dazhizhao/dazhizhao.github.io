@@ -6,7 +6,7 @@ Personal academic website at [dazhizhao.github.io](https://dazhizhao.github.io),
 
 The October 2026 migration uses the official al-folio v1 starter at commit `40c06007dab344970b681ba63b2241b1a8209ec1`, with `al_folio_core` 1.0.15 and the upstream plugin versions locked in `Gemfile.lock`. Layouts, styles, and browser runtime come from the al-folio gems.
 
-The only local runtime override is `_layouts/about.liquid`: it capitalizes section titles, retains the old homepage anchors, and displays the existing projects using al-folio's project cards. `.al-folio-overrides.yml` records the reviewed upstream version.
+Local runtime overrides are `_layouts/about.liquid` and `assets/css/main.scss`. They retain capitalized section titles and old homepage anchors, display the shared compact project list, and load `_sass/_site.scss` for the smaller portrait and contact icons. The project list is shared with the Projects page through `_includes/project-list.liquid`. `.al-folio-overrides.yml` records the reviewed upstream versions.
 
 ## Content
 

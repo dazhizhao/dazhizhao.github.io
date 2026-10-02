@@ -25,8 +25,7 @@ layout: default
             {% assign profile_image_class = 'img-fluid z-depth-1
       rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% capture sizes %}(min-width: 576px) 200px, 180px{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
             cache_bust=true
@@ -64,16 +63,9 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
-    <!-- Projects use the same collection and cards as the Projects page. -->
+    <!-- Projects use the same list as the Projects page. -->
     <h2 id="projects"><a href="{{ '/projects/' | relative_url }}" style="color: inherit">Projects</a></h2>
-    <div class="projects">
-      <div class="row row-cols-1 row-cols-md-2">
-        {% assign sorted_projects = site.projects | sort: 'importance' %}
-        {% for project in sorted_projects %}
-          {% include projects.liquid %}
-        {% endfor %}
-      </div>
-    </div>
+    {% include project-list.liquid heading_level=3 %}
 
     <!-- Social -->
     {% if page.social %}

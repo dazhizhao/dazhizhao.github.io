@@ -1,0 +1,13 @@
+<div class="projects project-list">
+  {% assign sorted_projects = site.projects | sort: 'importance' %}
+  {% assign heading_level = include.heading_level | default: 2 %}
+  {% for project in sorted_projects %}
+    <article class="project-item">
+      <h{{ heading_level }} class="project-list-title">
+        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+      </h{{ heading_level }}>
+      <p class="project-list-description">{{ project.description }}</p>
+      <a class="project-list-repository" href="{{ project.github }}">Repository</a>
+    </article>
+  {% endfor %}
+</div>
