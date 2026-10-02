@@ -8,6 +8,8 @@ The October 2026 migration uses the official al-folio v1 starter at commit `40c0
 
 Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, `_includes/selected_papers.liquid`, `assets/css/main.scss`, and `assets/js/bibsearch.js`. They retain capitalized section titles and old homepage anchors, share the compact project list, optimize image delivery, and support private local publication previews. The About text and portrait use separate desktop columns with a 60px gap, stacking on mobile. The bibliography search override passes a callback to its debounce timer so filtering does not trigger a Content Security Policy error. `.al-folio-overrides.yml` records the reviewed upstream versions. `_layouts/bib_text.liquid` renders the full Publications page without thumbnails.
 
+`_plugins/css_cache_bust.rb` includes local Sass, the CSS entrypoint, and layout settings in the stylesheet URL version, alongside the upstream theme version. This fixes al_folio_core 1.0.15's omission of local `_sass` changes, which could leave returning visitors using old CSS with new HTML. Run `bundle exec ruby bin/check_css_cache.rb` to check cache invalidation; CI also runs it.
+
 ## Content
 
 | Content                                                         | Source                     |

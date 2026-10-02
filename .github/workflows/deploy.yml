@@ -31,6 +31,7 @@ jobs:
       - run: npm run lint:prettier
       - run: bundle exec al-folio upgrade audit
       - run: bundle exec al-folio upgrade overrides audit
+      - run: bundle exec ruby bin/check_css_cache.rb
       - name: Build
         run: bundle exec jekyll build --trace
         env:
