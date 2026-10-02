@@ -34,10 +34,10 @@ latest_posts:
   enabled: false
 ---
 
-Hi! I'm Dazhi Zhao, an undergraduate at Tongji University. I like building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
+Hi! I'm Dazhi Zhao, a final-year undergraduate at Tongji University. I like building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
 
 My earlier work explored surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass so they can become tools for optimization, inference, and design.
 
-Lately, I’ve been thinking a lot about how to differentiate through systems that are not cleanly differentiable, especially those involving stochasticity or discrete events. These are the cases where the usual backward story starts to break down, and where I think there is still a lot worth figuring out.
+I’m particularly interested in differentiating through systems with stochasticity or discrete events, where standard backward passes can break down.
 
-At Tongji, I have worked with [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), focusing on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.
+At Tongji, I am fortunate to be advised by [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), focusing on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.
