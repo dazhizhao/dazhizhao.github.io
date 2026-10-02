@@ -38,6 +38,6 @@ Hi! I'm Dazhi Zhao, a final-year undergraduate at Tongji University. I like buil
 
 My earlier work explored surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass so they can become tools for optimization, inference, and design.
 
-I’m particularly interested in differentiating through systems with stochasticity or discrete events, where standard backward passes can break down.
+Lately, I’ve been thinking about how to differentiate through systems with stochasticity or discrete events, where the usual backward pass no longer works cleanly.
 
 At Tongji, I am fortunate to be advised by [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), focusing on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.
