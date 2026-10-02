@@ -1,0 +1,46 @@
+---
+---
+<div id="{{ entry.key }}" class="publication-text-entry">
+  <div class="publication-authors">
+    {%- for author in entry.author_array -%}
+      {%- assign clean_last = author.last | remove: '†' -%}
+      {%- assign last_html = author.last | replace: '†', '<sup>†</sup>' -%}
+      {%- unless forloop.first -%}, {% endunless -%}
+      {%- if site.scholar.last_name contains clean_last and site.scholar.first_name contains author.first -%}
+        <strong>
+          {{- author.first }}
+          {{ last_html -}}
+        </strong>
+      {%- else -%}
+        {{- author.first }}
+        {{ last_html -}}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="publication-title">
+    <a href="{{ entry.html }}">{{ entry.title }}</a>
+  </div>
+  <div class="publication-venue">
+    <em>{{ entry.journal }}</em>
+    {%- if entry.volume %}, {{ entry.volume }}{% endif %}
+    {%- if entry.pages %}, {{ entry.pages }}{% endif %}
+    {%- if entry.additional_info %}{{ entry.additional_info }}{% endif %} ({{ entry.year }}).
+  </div>
+  {% if entry.note %}
+    <div class="publication-note">{{ entry.note }}</div>
+  {% endif %}
+  <div class="publication-links">
+    {% if entry.html -%}
+      <a href="{{ entry.html }}">Paper</a>
+    {%- endif %}
+    {% if entry.doi -%}
+      <a href="https://doi.org/{{ entry.doi }}">DOI</a>
+    {%- endif %}
+    {% if entry.arxiv -%}
+      <a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>
+    {%- endif %}
+    {% if entry.code -%}
+      <a href="{{ entry.code }}">Code</a>
+    {%- endif %}
+  </div>
+</div>

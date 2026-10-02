@@ -13,3 +13,9 @@
 /assets/img/publication_preview/physics_guided_diffusion_denoising.gif:
   width: 320
   height: 320
+/assets/img/publication_preview/blank.svg:
+  width: 320
+  height: 320
+/assets/img/projects/jumpgrad-pipeline.png:
+  width: 3000
+  height: 1200

@@ -10,9 +10,10 @@ html_files = Dir.glob("#{site}/**/*").select { |f| File.file?(f) && (f.end_with?
 documents = html_files.to_h { |f| [f, Nokogiri::HTML(File.read(f))] }
 home = documents.fetch("#{site}/index.html")
 plain = ->(text) { text.gsub(/\s+/, ' ').strip }
-errors << 'News must not appear on the homepage' unless home.css('#news, .news').empty?
+errors << 'Expected five recent homepage news items' unless home.css('.news tr').size == 5
+errors << 'Missing News section' unless home.at_css('#news')
 errors << 'Expected three selected papers' unless home.css('.publications li').size == 3
-errors << 'Expected two homepage projects' unless home.css('.projects .project-item').size == 2
+errors << 'Expected three homepage projects' unless home.css('.projects .project-item').size == 3
 manifest['projects'].each do |project|
   errors << "Missing project: #{project['title']}" unless plain.call(home.text).include?(project['title'])
   errors << "Missing project description: #{project['title']}" unless plain.call(home.text).include?(project['description'])
@@ -33,17 +34,35 @@ end
 %w[/publications/ /projects/ /cv/ /cv-json/ /resume /resume-json /about/ /about.html /portfolio/ /sitemap/ /sitemap.xml /404.html].each do |path|
   errors << "Missing page or redirect: #{path}" unless resolve.call(path)
 end
-news_paths = ['/news/'] + manifest['news'].map { |item| "/news/#{item['date']}/" }
-news_paths.each do |path|
-  target = resolve.call(path)
-  doc = target && documents[File.expand_path(target)]
-  errors << "News URL must redirect home: #{path}" unless doc&.at_css('meta[http-equiv="refresh"]') && doc.at_css('link[rel="canonical"]')&.[]('href') == 'https://dazhizhao.github.io/'
+publications = documents.fetch("#{site}/publications/index.html")
+expected_keys = %w[zhao2026autoregressive zhao2026impact xie2026diffusion zhang2026failure jin2026generative zhang2026phasefield]
+selected_keys = home.css('.selected-publications .row > div[id]').map { |entry| entry['id'] }
+errors << 'Selected papers are missing or out of order' unless selected_keys == expected_keys.first(3)
+errors << 'Public bibliography is incomplete or out of order' unless publications.css('.publication-text-entry').map { |entry| entry['id'] } == expected_keys
+errors << 'Publications must have no thumbnails' unless publications.css('article img, article picture').empty?
+errors << 'Each public paper must highlight Dazhi Zhao' unless publications.css('.publication-authors strong').size == 6
+errors << 'Missing equal contribution note' unless home.at_css('#zhao2026impact').text.include?('† Equal contribution.')
+%w[Keke Rui MIAS].each { |name| errors << "Missing Tongji relationship: #{name}" unless home.text.include?(name) }
+errors << 'Missing final-year status' unless plain.call(home.text).include?('final year of my B.Eng. in Engineering Mechanics')
+errors << 'Missing completed internship dates' unless plain.call(home.text).include?('From January to September 2026, I was a Research Intern')
+errors << 'Outdated academic status' if home.text.match?(/third.year|currently visiting|Visiting Student/i)
+news = documents.fetch("#{site}/news/index.html")
+errors << 'Expected nine News entries' unless news.css('.news tr').size == 9
+errors << 'News missing from sitemap' unless File.read("#{site}/sitemap.xml").include?('/news/')
+manifest['news'].each do |item|
+  errors << "Missing original News date #{item['date']}" unless resolve.call("/news/#{item['date']}/")
 end
-errors << 'News URLs must not appear in the sitemap' if File.read("#{site}/sitemap.xml").include?('/news/')
+# Scan every production artifact, including JSON, JavaScript, XML and bibliography files.
+# This runs with the ignored local preview source still present on the developer machine.
+private_patterns = [/Differentiable Phase.Field Simulation/i, /Shuheng.{0,20}Liao/i, /Liao.{0,20}Shuheng/i, /local multiscale statistics/i, /local_preview/]
+Dir.glob("#{site}/**/*").select { |f| File.file?(f) }.each do |file|
+  contents = File.binread(file).force_encoding('UTF-8').scrub
+  errors << "Private preview leaked into #{file.delete_prefix(site)}" if private_patterns.any? { |pattern| contents.match?(pattern) }
+  errors << "Private bibliography copied into production: #{file}" if file.include?('local-preview')
+end
 documents.each do |file, doc|
   relative = file.delete_prefix(site)
   next if doc.at_css('meta[http-equiv="refresh"]')
-  errors << "News link remains in #{relative}" unless doc.css('a[href^="/news/"], a[href="/#news"]').empty?
   errors << "Demo content in #{relative}" if doc.text.match?(/Albert Einstein|GitHub University|Paper Title Number|Blog Post number|Your Name|You\. R\. Name|example_pdf/i)
   doc.css('a[href], img[src], script[src], link[href]').each do |node|
     link = node['href'] || node['src']
@@ -63,4 +82,4 @@ documents.each do |file, doc|
   end
 end
 abort errors.uniq.join("\n") unless errors.empty?
-puts "PASS: #{documents.size} HTML pages; migrated content, resource hashes, internal URLs, and old routes."
+puts "PASS: #{documents.size} HTML pages; academic content, public/private separation, resource hashes, internal URLs, and old routes."

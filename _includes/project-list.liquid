@@ -4,10 +4,16 @@
   {% for project in sorted_projects %}
     <article class="project-item">
       <h{{ heading_level }} class="project-list-title">
-        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        <a href="{% if project.external_url %}{{ project.external_url }}{% else %}{{ project.url | relative_url }}{% endif %}">{{ project.title }}</a>
       </h{{ heading_level }}>
+      {% if project.event %}
+        <p class="project-event">{{ project.event }}</p>
+      {% endif %}
       <p class="project-list-description">{{ project.description }}</p>
       <a class="project-list-repository" href="{{ project.github }}">Repository</a>
+      {% if project.external_url %}
+        <a class="project-list-repository ml-3" href="{{ project.url | relative_url }}">Details</a>
+      {% endif %}
     </article>
   {% endfor %}
 </div>

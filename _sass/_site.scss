@@ -4,6 +4,60 @@
   height: auto;
 }
 
+.publications img.preview[src$="blank.svg"] {
+  box-shadow: none !important;
+}
+
+.publications .author > em {
+  font-weight: 700;
+  font-style: normal;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.publication-text-list {
+  ol.bibliography {
+    padding-left: 1.5rem;
+    list-style: decimal;
+
+    > li {
+      margin-bottom: 1.5rem;
+      padding-left: 0.25rem;
+    }
+  }
+
+  .publication-title {
+    font-weight: 500;
+  }
+
+  .publication-note {
+    font-size: 0.875rem;
+  }
+
+  .publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.875rem;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+
+    a {
+      padding: 0.25rem 0;
+    }
+  }
+}
+
+.news-archive-link {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-list .project-event {
+  color: var(--global-text-color-light);
+  font-size: 0.875rem;
+  margin-bottom: 0.375rem;
+}
+
 #about .profile {
   width: 200px;
   max-width: 100%;
@@ -19,6 +73,12 @@
 }
 
 @media (max-width: 575px) {
+  .selected-publications .abbr {
+    flex: 0 0 140px;
+    max-width: 140px;
+    margin-bottom: 0.5rem;
+  }
+
   #about .profile {
     float: none !important;
     width: 180px;
@@ -62,6 +122,10 @@
 
     &:hover {
       text-decoration: underline;
+    }
+
+    & + .project-list-repository {
+      margin-left: 1rem;
     }
   }
 }

@@ -20,3 +20,6 @@ __pycache__/
 *.pyc
 
 .DS_Store
+
+# Private publication records, rendered only by development builds.
+_bibliography/local-preview.bib

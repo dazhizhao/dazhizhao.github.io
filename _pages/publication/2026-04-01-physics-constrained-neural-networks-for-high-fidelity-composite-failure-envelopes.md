@@ -9,6 +9,6 @@ nav: false
 
 This paper develops a physics-constrained neural-network framework for high-fidelity prediction of composite failure envelopes.
 
-Zhang, R., Zhao, D., Zhang, P., and Tang, K. (2026). &quot;Physics-constrained neural networks for high-fidelity composite failure envelopes.&quot; <i>Composite Structures</i>, 120358.
+Zhang, R., Zhao, D., Zhang, P., and Tang, K. (2026). &quot;Physics-constrained neural networks for high-fidelity composite failure envelopes.&quot; <i>Composite Structures</i>, 388, 120358.
 
 [Link](https://doi.org/10.1016/j.compstruct.2026.120358)

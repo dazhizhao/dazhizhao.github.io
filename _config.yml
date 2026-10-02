@@ -3,11 +3,11 @@ first_name: Dazhi
 middle_name: ""
 last_name: Zhao
 contact_note: ""
-description: Mechanics & Deep Learning.
+description: Computational Mechanics, Differentiable Simulation, and Inverse Design. Dazhi Zhao, Engineering Mechanics at Tongji University.
 footer_text:
   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a>. Hosted by <a href="https://pages.github.com/">GitHub
   Pages</a>.
-keywords: ""
+keywords: computational mechanics, differentiable simulation, inverse design
 lang: en
 icon: favicon.svg
 apple_touch_icon: apple-touch-icon-180x180.png
@@ -95,6 +95,8 @@ newsletter:
   enabled: false
   endpoint: null
 collections:
+  news:
+    output: true
   projects:
     output: true
 markdown: kramdown
@@ -111,6 +113,7 @@ kramdown:
 include:
   - _pages
 exclude:
+  - _bibliography/local-preview.bib
   - AGENTS.md
   - al-folio-upgrade-report.md
   - bin/
@@ -216,14 +219,15 @@ scholar:
   query: "@*"
   group_by: year
   group_order: descending
-  sort_by: year,month
-  order: descending
+  sort_by: publication_order
+  order: ascending
 enable_publication_badges:
   altmetric: false
   dimensions: false
   google_scholar: false
   inspirehep: false
 filtered_bibtex_keywords:
+  - publication_order
   - abbr
   - abstract
   - additional_info
