@@ -6,7 +6,7 @@ Personal academic website at [dazhizhao.github.io](https://dazhizhao.github.io),
 
 The October 2026 migration uses the official al-folio v1 starter at commit `40c06007dab344970b681ba63b2241b1a8209ec1`, with `al_folio_core` 1.0.15 and the upstream plugin versions locked in `Gemfile.lock`. Layouts, styles, and browser runtime come from the al-folio gems.
 
-Local runtime overrides are `_layouts/about.liquid` and `assets/css/main.scss`. They retain capitalized section titles and old homepage anchors, display the shared compact project list, and load `_sass/_site.scss` for the smaller portrait and contact icons. The project list is shared with the Projects page through `_includes/project-list.liquid`. `.al-folio-overrides.yml` records the reviewed upstream versions.
+Local runtime overrides are `_layouts/about.liquid`, `_includes/figure.liquid`, and `assets/css/main.scss`. They retain capitalized section titles and old homepage anchors, display the shared compact project list, optimize image delivery, and load `_sass/_site.scss` for the smaller portrait and contact icons. The project list is shared with the Projects page through `_includes/project-list.liquid`. `.al-folio-overrides.yml` records the reviewed upstream versions.
 
 ## Content
 
@@ -37,7 +37,7 @@ bundle exec ruby bin/check_site.rb
 bundle exec jekyll serve --host 127.0.0.1 --port 4000
 ```
 
-Open `http://127.0.0.1:4000`. The site uses an empty `baseurl`. Image conversion is disabled to retain the original images and animated GIFs.
+Open `http://127.0.0.1:4000`. The site uses an empty `baseurl`. Automatic image conversion is disabled. Two checked-in WebP copies (quality 85) serve the portrait at 600px and the static publication preview at 800px. `_data/image_metadata.yml` maps these copies and the original dimensions; the originals remain available as fallbacks and at their existing URLs. GIF files are unchanged. The portrait loads eagerly with high priority, homepage publication previews load lazily, and Publications retains eager loading. Regenerating the two static copies requires an image converter with WebP support; the site build does not.
 
 With the local server running, check desktop/mobile rendering, navigation, resources, and redirects:
 

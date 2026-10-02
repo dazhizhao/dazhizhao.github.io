@@ -18,7 +18,7 @@ layout: default
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% assign profile_image_path = page.profile.image | prepend: '/assets/img/' %}
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
@@ -28,7 +28,7 @@ layout: default
           {% capture sizes %}(min-width: 576px) 200px, 180px{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
+            cache_bust=true fetchpriority="high"
           %}
         {% endif %}
         {% if page.profile.more_info %}

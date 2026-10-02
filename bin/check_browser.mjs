@@ -10,6 +10,14 @@ const browser = await chromium.launch();
 const errors = [];
 const externalFailures = new Set();
 const results = [];
+// Offscreen lazy images are checked after a visitor scrolls to them.
+async function loadLazyImages(page) {
+  for (const image of await page.locator('img[loading="lazy"]').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((img) => img.decode());
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+}
 for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height: 1000 }, mobile: { width: 390, height: 844 } })) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, colorScheme: "dark" });
   // Production analytics are retained in the build; localhost is not their registered origin.
@@ -33,6 +41,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
     const response = await page.goto(base + route, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200, route);
     await page.evaluate(() => document.fonts.ready);
+    await loadLazyImages(page);
     const state = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth > innerWidth + 1,
       background: getComputedStyle(document.body).backgroundColor,
@@ -55,6 +64,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
         assert.equal(new URL(page.url()).pathname, "/publications/");
         await page.waitForLoadState("networkidle");
         await page.goto(base + "/", { waitUntil: "networkidle" });
+        await loadLazyImages(page);
       }
     }
     results.push({ device, route, ...state });

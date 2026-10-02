@@ -1,4 +1,9 @@
 // Small, scoped adjustments to the al-folio layout.
+.publications img.preview {
+  width: 100%;
+  height: auto;
+}
+
 #about .profile {
   width: 200px;
   max-width: 100%;

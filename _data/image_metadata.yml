@@ -1,0 +1,15 @@
+# Original dimensions reserve space; WebP copies are display derivatives only.
+/assets/img/profile.png:
+  width: 1120
+  height: 1120
+  webp: /assets/img/profile-600.webp
+/assets/img/publication_preview/autoregressive_inverse_design.gif:
+  width: 320
+  height: 320
+/assets/img/publication_preview/physics_constrained_failure_envelopes.jpg:
+  width: 2907
+  height: 1821
+  webp: /assets/img/publication_preview/physics_constrained_failure_envelopes-800.webp
+/assets/img/publication_preview/physics_guided_diffusion_denoising.gif:
+  width: 320
+  height: 320
