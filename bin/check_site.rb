@@ -56,7 +56,7 @@ errors << 'Each public paper must highlight Dazhi Zhao' unless publications.css(
 errors << 'Contribution explanation must appear once beside the heading' unless home.css('#publications .equal-contribution-note').size == 1 && plain.call(home.css('#about').text).scan('† Equal contribution').size == 1
 errors << 'Missing contribution markers' unless home.css('#zhao2026impact .author sup').size == 2
 %w[Keke Rui MIAS].each { |name| errors << "Missing Tongji relationship: #{name}" unless home.text.include?(name) }
-errors << 'Missing final-year status' unless plain.call(home.text).include?('final-year undergraduate student majoring in Engineering Mechanics')
+errors << 'Missing undergraduate introduction' unless plain.call(home.text).include?('an undergraduate at Tongji University')
 errors << 'Missing completed internship description' unless plain.call(home.text).include?('I previously worked as a research intern')
 errors << 'Outdated academic status' if home.text.match?(/third.year|currently visiting|Visiting Student|January to September/i)
 news_paths = ['/news/'] + manifest['news'].map { |item| "/news/#{item['date']}/" } + %w[/news/2026-08-28/ /news/2026-09-17/ /news/2026-09/]

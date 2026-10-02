@@ -95,7 +95,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
       }
       assert.match(
         await page.locator("#about .clearfix").innerText(),
-        /final-year undergraduate[\s\S]*Rui Fan[\s\S]*I previously worked as a research intern[\s\S]*HKUST/
+        /an undergraduate at Tongji University[\s\S]*Rui Fan[\s\S]*I previously worked as a research intern[\s\S]*HKUST/
       );
       for (const title of ["Selected Publications", "Projects"]) assert(state.headings.some((heading) => heading.startsWith(title)));
       if (device === "desktop") {
