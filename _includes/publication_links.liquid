@@ -1,0 +1,22 @@
+<div class="links">
+  {% if entry.doi %}
+    <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
+  {% endif %}
+  {% if entry.bibtex_show %}
+    <a class="bibtex btn btn-sm z-depth-0" role="button">BIB</a>
+  {% endif %}
+  {% if entry.pdf %}
+    {% if entry.pdf contains '://' %}
+      <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+    {% else %}
+      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+    {% endif %}
+  {% endif %}
+</div>
+{% if entry.bibtex_show %}
+  <div class="bibtex hidden">
+    {% highlight bibtex %}
+    {{- entry.bibtex | hideCustomBibtex -}}
+    {% endhighlight %}
+  </div>
+{% endif %}

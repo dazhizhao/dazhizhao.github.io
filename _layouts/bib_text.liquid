@@ -31,18 +31,5 @@
   {% elsif entry.note %}
     <div class="publication-note">{{ entry.note }}</div>
   {% endif %}
-  <div class="publication-links">
-    {% if entry.html -%}
-      <a href="{{ entry.html }}">Paper</a>
-    {%- endif %}
-    {% if entry.doi -%}
-      <a href="https://doi.org/{{ entry.doi }}">DOI</a>
-    {%- endif %}
-    {% if entry.arxiv -%}
-      <a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>
-    {%- endif %}
-    {% if entry.code -%}
-      <a href="{{ entry.code }}">Code</a>
-    {%- endif %}
-  </div>
+  {% include publication_links.liquid %}
 </div>

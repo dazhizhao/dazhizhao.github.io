@@ -24,6 +24,11 @@ profile:
   more_info: <p><a href="https://www.tongji.edu.cn/">Tongji University</a></p><p>Shanghai,
     China</p>
 selected_papers: true
+selected_paper_keys:
+  - zhao2026autoregressive
+  - zhao2026impact
+  - zhang2026failure
+  - xie2026diffusion
 social: true
 latest_posts:
   enabled: false

@@ -11,7 +11,7 @@ documents = html_files.to_h { |f| [f, Nokogiri::HTML(File.read(f))] }
 home = documents.fetch("#{site}/index.html")
 plain = ->(text) { text.gsub(/\s+/, ' ').strip }
 errors << 'News must not appear on the homepage' unless home.css('#news, .news').empty?
-errors << 'Expected three selected papers' unless home.css('.publications li').size == 3
+errors << 'Expected four selected papers' unless home.css('.publications li').size == 4
 errors << 'Expected three homepage projects' unless home.css('.projects .project-item').size == 3
 manifest['projects'].each do |project|
   errors << "Missing original project repository: #{project['url']}" unless home.css('.projects a').any? { |link| link['href'] == project['url'] }
@@ -41,10 +41,11 @@ end
 publications = documents.fetch("#{site}/publications/index.html")
 expected_keys = %w[zhao2026autoregressive zhao2026impact xie2026diffusion zhang2026failure jin2026generative zhang2026phasefield]
 selected_keys = home.css('.selected-publications .row > div[id]').map { |entry| entry['id'] }
-errors << 'Selected papers are missing or out of order' unless selected_keys == expected_keys.first(3)
-home.css('.selected-publications .row > div[id]').each do |entry|
+errors << 'Selected papers are missing or out of order' unless selected_keys == %w[zhao2026autoregressive zhao2026impact zhang2026failure xie2026diffusion]
+(home.css('.selected-publications .row > div[id]') + publications.css('.publication-text-entry')).each do |entry|
   links = entry.css('.links a')
-  errors << "Inconsistent selected paper buttons: #{entry['id']}" unless links.map { |link| plain.call(link.text) } == %w[DOI BIB PDF]
+  errors << "Inconsistent publication buttons: #{entry['id']}" unless links.map { |link| plain.call(link.text) } == %w[DOI BIB PDF]
+  errors << "Missing BibTeX panel: #{entry['id']}" unless entry.css('.bibtex.hidden').size == 1 && entry.at_css('.bibtex.hidden').text.include?('@article')
   pdf_path = links.find { |link| plain.call(link.text) == 'PDF' }&.[]('href')
   pdf_file = pdf_path && resolve.call(pdf_path)
   errors << "Missing or invalid paper PDF: #{entry['id']}" unless pdf_file && File.binread(pdf_file, 5) == '%PDF-'

@@ -203,22 +203,7 @@
       {{ entry.note | strip }}
     </div>
 
-    <!-- Selected publication links use a consistent order. -->
-    <div class="links">
-      {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
-      {% endif %}
-      {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">BIB</a>
-      {% endif %}
-      {% if entry.pdf %}
-        {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% endif %}
-      {% endif %}
-    </div>
+    {% include publication_links.liquid %}
     {% if site.enable_publication_badges %}
       {% assign entry_has_altmetric_badge = false %}
       {% if entry.altmetric and entry.altmetric != 'false' %}
@@ -333,15 +318,6 @@
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>{{ entry.abstract }}</p>
-      </div>
-    {% endif %}
-
-    {% if entry.bibtex_show %}
-      <!-- Hidden bibtex block -->
-      <div class="bibtex hidden">
-        {% highlight bibtex %}
-        {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
       </div>
     {% endif %}
 

@@ -15,7 +15,7 @@
   text-decoration: none;
 }
 
-.selected-publications .links {
+.publications .links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -45,18 +45,6 @@
 
   .publication-note {
     font-size: 0.875rem;
-  }
-
-  .publication-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.875rem;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-
-    a {
-      padding: 0.25rem 0;
-    }
   }
 }
 

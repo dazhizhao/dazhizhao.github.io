@@ -1,9 +1,12 @@
 <div class="publications selected-publications">
-  {% bibliography --group_by none --query @*[selected=true]* %}
-  {% if jekyll.environment == 'development' %}
-    {% capture local_preview_exists %}{% file_exists _bibliography/local-preview.bib %}{% endcapture %}
-    {% if local_preview_exists == 'true' %}
-      {% bibliography --file local-preview --group_by none %}
+  {% for paper_key in page.selected_paper_keys %}
+    {% bibliography --group_by none --query @*[key={{ paper_key }}] %}
+    {% comment %}Keep the private preview after IJDM, excluded from production entirely.{% endcomment %}
+    {% if paper_key == 'zhao2026impact' and jekyll.environment == 'development' %}
+      {% capture local_preview_exists %}{% file_exists _bibliography/local-preview.bib %}{% endcapture %}
+      {% if local_preview_exists == 'true' %}
+        {% bibliography --file local-preview --group_by none %}
+      {% endif %}
     {% endif %}
-  {% endif %}
+  {% endfor %}
 </div>

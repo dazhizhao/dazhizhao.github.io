@@ -19,6 +19,21 @@ async function loadLazyImages(page) {
   }
   await page.evaluate(() => window.scrollTo(0, 0));
 }
+async function checkPublicationButtons(entries) {
+  for (const entry of await entries.all()) {
+    const links = entry.locator(".links a");
+    assert.deepEqual(await links.allTextContents(), ["DOI", "BIB", "PDF"]);
+    const sizes = await links.evaluateAll((els) =>
+      els.map((el) => ({ width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }))
+    );
+    assert(sizes.every((size) => Math.abs(size.width - sizes[0].width) < 1 && Math.abs(size.height - sizes[0].height) < 1));
+    await entry.getByRole("button", { name: "BIB", exact: true }).click();
+    assert(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open")));
+    assert.match(await entry.locator(".bibtex.hidden").innerText(), /@article/);
+    await entry.getByRole("button", { name: "BIB", exact: true }).click();
+    assert(!(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open"))));
+  }
+}
 for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height: 1000 }, mobile: { width: 390, height: 844 } })) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, colorScheme: "dark" });
   // Production analytics are retained in the build; localhost is not their registered origin.
@@ -58,32 +73,25 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
       assert.equal(await page.locator("#news, .news").count(), 0);
       assert.equal(await page.locator("#publications .equal-contribution-note").count(), 1);
       assert.equal((await page.locator("#about").innerText()).split("† Equal contribution").length - 1, 1);
-      assert.equal(await page.locator(".publications li").count(), preview ? 4 : 3);
+      assert.equal(await page.locator(".publications li").count(), preview ? 5 : 4);
       assert.deepEqual(await page.locator(".selected-publications .row > div[id]").evaluateAll((els) => els.map((el) => el.id)), [
         "zhao2026autoregressive",
         "zhao2026impact",
-        "xie2026diffusion",
         ...(preview ? ["local_preview"] : []),
+        "zhang2026failure",
+        "xie2026diffusion",
       ]);
       assert.equal(await page.locator(".projects .project-item").count(), 3);
-      for (const entry of await page.locator(".selected-publications .row > div[id]:not(#local_preview)").all()) {
-        const links = entry.locator(".links a");
-        assert.deepEqual(await links.allTextContents(), ["DOI", "BIB", "PDF"]);
-        const sizes = await links.evaluateAll((els) =>
-          els.map((el) => ({ width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }))
-        );
-        assert(sizes.every((size) => Math.abs(size.width - sizes[0].width) < 1 && Math.abs(size.height - sizes[0].height) < 1));
-        await entry.getByRole("button", { name: "BIB", exact: true }).click();
-        assert(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open")));
-        assert.match(await entry.locator(".bibtex.hidden").innerText(), /@article/);
-        await entry.getByRole("button", { name: "BIB", exact: true }).click();
-        assert(!(await entry.locator(".bibtex.hidden").evaluate((panel) => panel.classList.contains("open"))));
-      }
+      await checkPublicationButtons(page.locator(".selected-publications .row > div[id]:not(#local_preview)"));
       const portrait = await page.locator(".profile img").boundingBox();
       assert.equal(Math.round(portrait.width), device === "mobile" ? 180 : 200);
       for (const image of await page.locator(".publications img.preview").all()) {
-        const box = await image.boundingBox();
-        assert(Math.abs(box.width - box.height) < 1, "Square publication preview");
+        const dimensions = await image.evaluate((img) => ({
+          width: img.getBoundingClientRect().width,
+          height: img.getBoundingClientRect().height,
+          ratio: img.naturalWidth / img.naturalHeight,
+        }));
+        assert(Math.abs(dimensions.width / dimensions.ratio - dimensions.height) < 1, "Publication preview must preserve its aspect ratio");
       }
       assert.match(
         await page.locator("#about .clearfix").innerText(),
@@ -150,6 +158,7 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
       assert.equal(await page.locator(".publication-text-entry").count(), 6);
       assert.equal(await page.locator("article img, article picture").count(), 0);
       assert.equal(await page.locator(".publication-authors strong").count(), 6);
+      await checkPublicationButtons(page.locator(".publication-text-entry"));
       await page.locator("#bibsearch").fill("material-aware");
       await page.waitForFunction(() => document.querySelectorAll("ol.bibliography > li:not(.unloaded)").length === 1);
       assert(await page.locator("#zhao2026impact").isVisible());
@@ -158,6 +167,8 @@ for (const [device, viewport] of Object.entries({ desktop: { width: 1440, height
     }
     if (!preview || route !== "/") assert(!/Differentiable Phase.Field|Shuheng|local_preview/.test(await page.content()));
     results.push({ device, route, ...state });
+    await page.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: "instant" }));
+    await page.mouse.move(0, 0);
     await page.screenshot({ path: `${output}/${device}-${route.replaceAll("/", "") || "about"}.png`, fullPage: true });
   }
   await context.close();
