@@ -1,4 +1,33 @@
 // Small, scoped adjustments to the al-folio layout.
+@font-face {
+  font-family: "Dazhi Name Kai";
+  src: url("/assets/fonts/dazhi-name-kai.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+5927, U+5FD7, U+8D75;
+}
+
+.about-header .post-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 40px;
+
+  .name-en,
+  .name-zh {
+    white-space: nowrap;
+  }
+
+  .name-zh {
+    font-family: "Dazhi Name Kai", "Kaiti SC", STKaiti, KaiTi, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #333;
+  }
+}
+
 .publications img.preview {
   width: 100%;
   height: auto;
@@ -88,6 +117,15 @@
 }
 
 @media (max-width: 575px) {
+  .about-header .post-title {
+    gap: 12px;
+    font-size: 32px;
+
+    .name-zh {
+      font-size: 30px;
+    }
+  }
+
   .selected-publications .abbr {
     flex: 0 0 140px;
     max-width: 140px;

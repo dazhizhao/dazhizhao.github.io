@@ -15,7 +15,7 @@ redirect_from:
   - /news/2026-08-28/
   - /news/2026-09-17/
   - /news/2026-09/
-subtitle: Dazhi Zhao (赵大志)
+name_zh: 赵大志
 description: Final-year Engineering Mechanics undergraduate at Tongji University. Research in computational mechanics, differentiable simulation, and inverse problems.
 profile:
   align: right
@@ -34,10 +34,10 @@ latest_posts:
   enabled: false
 ---
 
-Hi! I'm Dazhi Zhao, a final-year undergraduate at Tongji University. I like building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
+Hi! I’m Dazhi Zhao, a final-year undergraduate at Tongji University. I’m originally from Xi’an, China, a city often known as the capital of thirteen dynasties. In research, I love building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
 
-My earlier work explored surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass so they can become tools for optimization, inference, and design.
+My work includes surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass. The resulting gradients can guide changes to inputs or parameters toward a desired outcome, supporting optimization, inference, and design.
 
-Lately, I’ve been thinking about how to differentiate through systems with stochasticity or discrete events, where the usual backward pass no longer works cleanly.
+Lately, I’ve been especially curious about differentiating through systems with stochasticity or discrete events, where useful gradients become much less straightforward.
 
-At Tongji, I am fortunate to be advised by [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), focusing on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.
+At Tongji, I am fortunate to be advised by [Prof. Keke Tang](https://aero-mech.tongji.edu.cn/e7/61/c23511a255841/page.htm) (FCM Lab) and [Prof. Rui Fan](https://www.ruirangerfan.com/) ([MIAS Group](https://mias.group/)), working on data-driven modeling and generative inverse design. I previously worked as a research intern with [Prof. Tianju Xue](https://ce.hkust.edu.hk/people/tian-ju-xue-xuetianju) ([CMSL Group](https://cetxue.people.ust.hk/)) at [HKUST](https://hkust.edu.hk/), focusing on differentiable simulation for inverse problems in additive manufacturing.
