@@ -34,7 +34,7 @@ latest_posts:
   enabled: false
 ---
 
-Hi! I’m Dazhi Zhao, a final-year undergraduate at Tongji University. I’m originally from Xi’an, China, a city often known as the capital of thirteen dynasties. In research, I love building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
+Hi! I’m Dazhi Zhao, a final-year undergraduate at [Tongji University](https://www.tongji.edu.cn/). I’m originally from [Xi’an](https://en.wikipedia.org/wiki/Xi%27an), one of the oldest cities in China. In research, I love building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
 
 My work includes surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass. The resulting gradients can guide changes to inputs or parameters toward a desired outcome, supporting optimization, inference, and design.
 
