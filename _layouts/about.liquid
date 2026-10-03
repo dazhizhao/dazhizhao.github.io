@@ -35,6 +35,14 @@ layout: default
           {% if page.profile.more_info %}
             <div class="more-info">{{ page.profile.more_info }}</div>
           {% endif %}
+          {% if page.social %}
+            <div class="social">
+              <div class="contact-icons">{% social_links %}</div>
+              {% if site.contact_note != blank %}
+                <div class="contact-note">{{ site.contact_note }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
         </div>
       {% endif %}
 
@@ -61,15 +69,6 @@ layout: default
     <!-- Projects use the same list as the Projects page. -->
     <h2 id="projects"><a href="{{ '/projects/' | relative_url }}" style="color: inherit">Projects</a></h2>
     {% include project-list.liquid heading_level=3 %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% if site.plugins contains 'al_newsletter' %}
