@@ -36,7 +36,7 @@ latest_posts:
 
 Hi! I’m Dazhi Zhao, a final-year undergraduate at [Tongji University](https://www.tongji.edu.cn/). I’m originally from [Xi’an](https://en.wikipedia.org/wiki/Xi%27an), one of the oldest cities in China. In research, I love building computational tools that make physical simulation more useful, not just for predicting what a system will do, but for figuring out how to change it.
 
-My work includes surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, with the goal of giving traditional forward simulators a usable backward pass. The resulting gradients can guide changes to inputs or parameters toward a desired outcome, supporting optimization, inference, and design.
+My early work includes surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, and I’ve become increasingly fascinated by using gradients to turn traditional forward simulators into tools for optimization, inference, and design.
 
 Lately, I’ve been especially curious about differentiating through systems with stochasticity or discrete events, where useful gradients become much less straightforward.
 
