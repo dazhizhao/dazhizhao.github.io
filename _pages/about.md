@@ -34,7 +34,9 @@ latest_posts:
   enabled: false
 ---
 
-Hi! I’m Dazhi Zhao, a final-year undergraduate at [Tongji University](https://www.tongji.edu.cn/) majoring in Engineering Mechanics. I’m originally from [Xi’an](https://en.wikipedia.org/wiki/Xi%27an), one of the oldest cities in China. When it comes to research, what really excites me is the idea of turning the forward simulators we already have into tools for solving inverse problems.
+Hi! I’m Dazhi Zhao, a final-year undergraduate at [Tongji University](https://www.tongji.edu.cn/) majoring in Engineering Mechanics. I’m originally from [Xi’an](https://en.wikipedia.org/wiki/Xi%27an), one of the oldest cities in China.
+
+When it comes to research, what really excites me is the idea of turning the forward simulators we already have into tools for solving inverse problems.
 
 My early work includes surrogate modeling and generative inverse design. More recently, I have been moving toward differentiable simulation, and I’ve become increasingly fascinated by using gradients to turn traditional forward simulators into tools for optimization, inference, and design.
 
